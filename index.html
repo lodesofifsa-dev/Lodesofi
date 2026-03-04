@@ -326,7 +326,7 @@ ${item.qty}
 });
 
 let envio=3000;
-let descuento= total>20000 ? total*0.10 : 0;
+let descuento= total>40000 ? total*0.10 : 0;
 let totalFinal= total + envio - descuento;
 
 cartTotal.innerHTML=`
@@ -374,7 +374,7 @@ total+=subtotal;
 message+=`${item.name} x${item.qty} = $${subtotal}%0A`;
 });
 
-let descuento= total>20000 ? total*0.10 : 0;
+let descuento= total>40000 ? total*0.10 : 0;
 let totalFinal= total + envio - descuento;
 
 message+=`%0ASubtotal: $${total}`;
