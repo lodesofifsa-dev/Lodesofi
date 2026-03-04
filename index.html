@@ -9,38 +9,49 @@
 body{
     margin:0;
     font-family: Arial, sans-serif;
-    background:#f4f6f8;
+    background:#f5f5f5;
 }
 
+/* HEADER */
 header{
-    background:#2e7d32;
-    color:white;
+    background:#0f0f0f;
+    color:#d4af37; /* DORADO */
     padding:15px;
     display:flex;
     justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
+    border-bottom:2px solid #d4af37;
 }
 
+header h2{
+    margin:0;
+    color:#d4af37;
+}
+
+/* BOTONES CATEGORÍAS */
 nav{
     margin-top:10px;
 }
 
 nav button{
-    background:white;
-    color:#2e7d32;
-    border:none;
-    padding:8px 12px;
+    background:#1a1a1a;
+    color:#d4af37;
+    border:1px solid #d4af37;
+    padding:8px 14px;
     margin:4px;
     border-radius:6px;
     cursor:pointer;
     font-weight:bold;
+    transition:0.3s;
 }
 
 nav button:hover{
-    background:#e8f5e9;
+    background:#d4af37;
+    color:#000;
 }
 
+/* BUSCADOR */
 .buscador{
     text-align:center;
     padding:20px;
@@ -55,6 +66,7 @@ nav button:hover{
     border:1px solid #ccc;
 }
 
+/* PRODUCTOS */
 .section{
     padding:40px 20px;
 }
@@ -71,6 +83,11 @@ nav button:hover{
     border-radius:10px;
     box-shadow:0 3px 10px rgba(0,0,0,0.1);
     text-align:center;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
 }
 
 .card img{
@@ -80,38 +97,55 @@ nav button:hover{
     border-radius:8px;
 }
 
+.card h3{
+    color:#111;
+}
+
 .btn{
-    background:#2e7d32;
-    color:white;
-    border:none;
+    background:#0f0f0f;
+    color:#d4af37;
+    border:1px solid #d4af37;
     padding:10px;
     margin-top:10px;
     border-radius:6px;
     cursor:pointer;
+    font-weight:bold;
+    transition:0.3s;
 }
 
 .btn:hover{
-    background:#1b5e20;
+    background:#d4af37;
+    color:#000;
 }
 
+/* CARRITO */
 .carrito{
     position:fixed;
     bottom:20px;
     right:20px;
-    background:#2e7d32;
-    color:white;
+    background:#0f0f0f;
+    color:#d4af37;
     padding:15px 20px;
     border-radius:50px;
     cursor:pointer;
     font-weight:bold;
+    border:1px solid #d4af37;
+    transition:0.3s;
 }
 
+.carrito:hover{
+    background:#d4af37;
+    color:#000;
+}
+
+/* FOOTER */
 footer{
-    background:#2e7d32;
-    color:white;
+    background:#0f0f0f;
+    color:#d4af37;
     text-align:center;
     padding:15px;
     margin-top:40px;
+    border-top:2px solid #d4af37;
 }
 </style>
 </head>
