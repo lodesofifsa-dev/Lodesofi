@@ -8,123 +8,110 @@
 <style>
 body{
     margin:0;
-    font-family:Arial, sans-serif;
-    background:#fdfaf5;
+    font-family: Arial, sans-serif;
+    background:#f2f2f2;
 }
 
 header{
-    background:white;
-    padding:15px 40px;
+    background:#2e7d32;
+    color:white;
+    padding:15px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    box-shadow:0 2px 5px rgba(0,0,0,0.05);
 }
 
 nav a{
-    margin-left:20px;
+    color:white;
+    margin-left:15px;
     text-decoration:none;
-    color:#333;
     font-weight:bold;
 }
 
-.hero{
-    background:#e8f5e9;
+.buscador-container{
     text-align:center;
-    padding:60px 20px;
+    padding:20px;
+    background:white;
+}
+
+#buscador{
+    width:60%;
+    max-width:500px;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    font-size:16px;
 }
 
 .section{
-    padding:50px 40px;
+    padding:40px 20px;
+}
+
+.section h2{
     text-align:center;
+    margin-bottom:30px;
+}
+
+.categoria{
+    margin-top:60px;
 }
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-    margin-top:30px;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
 }
 
 .card{
     background:white;
     padding:15px;
     border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.05);
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+    text-align:center;
 }
 
 .card img{
     width:100%;
-    height:220px;
+    height:180px;
     object-fit:cover;
     border-radius:8px;
-    background:#eee;
-}
-
-.card h3{
-    margin:15px 0 5px 0;
 }
 
 .btn{
-    background:#6d8c3c;
+    background:#2e7d32;
     color:white;
-    padding:8px 15px;
     border:none;
+    padding:10px;
+    margin-top:10px;
     border-radius:6px;
     cursor:pointer;
-    margin-top:10px;
+}
+
+.btn:hover{
+    background:#1b5e20;
+}
+
+.carrito{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#2e7d32;
+    color:white;
+    padding:15px;
+    border-radius:50px;
+    cursor:pointer;
 }
 
 footer{
-    background:#333;
+    background:#2e7d32;
     color:white;
     text-align:center;
-    padding:25px;
+    padding:15px;
     margin-top:40px;
-}
-
-/* BOTON FLOTANTE */
-#cart-button{
-    position:fixed;
-    top:20px;
-    right:20px;
-    background:#6d8c3c;
-    color:white;
-    padding:12px 18px;
-    border-radius:50px;
-    cursor:pointer;
-    font-weight:bold;
-    box-shadow:0 4px 10px rgba(0,0,0,0.2);
-    z-index:1000;
-}
-
-#cart-count{
-    background:red;
-    border-radius:50%;
-    padding:3px 8px;
-    margin-left:5px;
-}
-
-/* PANEL LATERAL */
-#cart-panel{
-    position:fixed;
-    right:-400px;
-    top:0;
-    width:350px;
-    height:100%;
-    background:white;
-    box-shadow:-2px 0 10px rgba(0,0,0,0.2);
-    padding:20px;
-    transition:0.3s;
-    overflow-y:auto;
-    z-index:999;
-}
-
-#cart-panel.open{
-    right:0;
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -135,123 +122,143 @@ footer{
     </nav>
 </header>
 
-<section class="hero">
-    <h1>Encontra Todo Lo Que Buscas En Un Solo Lugar</h1>
-    <p>Precios competitivos y atención personalizada</p>
-</section>
+<div class="buscador-container">
+    <input type="text" id="buscador" placeholder="Buscar productos..." onkeyup="buscarProducto()">
+</div>
 
 <section class="section" id="productos">
     <h2>Nuestros Productos</h2>
 
-    <div class="grid">
-
-        <div class="card">
-            <img src="imagenes/producto1.jpg" alt="Producto 1">
-            <h3>Producto 1</h3>
-            <p>$5000</p>
-            <button class="btn" onclick="agregar('Producto 1',5000)">Agregar al carrito</button>
+    <!-- LIMPIEZA -->
+    <div class="categoria">
+        <h2>🧼 Limpieza</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="imagenes/limpieza1.jpg">
+                <h3>Lavandina</h3>
+                <p>$3000</p>
+                <button class="btn" onclick="agregar('Lavandina',3000)">Agregar</button>
+            </div>
         </div>
-
-        <div class="card">
-            <img src="imagenes/producto2.jpg" alt="Producto 2">
-            <h3>Producto 2</h3>
-            <p>$8000</p>
-            <button class="btn" onclick="agregar('Producto 2',8000)">Agregar al carrito</button>
-        </div>
-
-        <div class="card">
-            <img src="imagenes/producto3.jpg" alt="Producto 3">
-            <h3>Producto 3</h3>
-            <p>$12000</p>
-            <button class="btn" onclick="agregar('Producto 3',12000)">Agregar al carrito</button>
-        </div>
-
     </div>
+
+    <!-- HOGAR -->
+    <div class="categoria">
+        <h2>🏠 Hogar</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="imagenes/hogar1.jpg">
+                <h3>Repasador</h3>
+                <p>$2500</p>
+                <button class="btn" onclick="agregar('Repasador',2500)">Agregar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PLÁSTICOS -->
+    <div class="categoria">
+        <h2>🧴 Plásticos</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="imagenes/plastico1.jpg">
+                <h3>Tupper Grande</h3>
+                <p>$5000</p>
+                <button class="btn" onclick="agregar('Tupper Grande',5000)">Agregar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BAÑO -->
+    <div class="categoria">
+        <h2>🚿 Baño</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="imagenes/bano1.jpg">
+                <h3>Cortina de baño</h3>
+                <p>$8000</p>
+                <button class="btn" onclick="agregar('Cortina de baño',8000)">Agregar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BAZAR -->
+    <div class="categoria">
+        <h2>🍽️ Bazar</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="imagenes/bazar1.jpg">
+                <h3>Juego de vasos</h3>
+                <p>$12000</p>
+                <button class="btn" onclick="agregar('Juego de vasos',12000)">Agregar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SAHUMERIOS -->
+    <div class="categoria">
+        <h2>🕯️ Sahumerios</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="imagenes/sahumerio1.jpg">
+                <h3>Sahumerio Lavanda</h3>
+                <p>$1500</p>
+                <button class="btn" onclick="agregar('Sahumerio Lavanda',1500)">Agregar</button>
+            </div>
+        </div>
+    </div>
+
 </section>
 
-<!-- BOTON FLOTANTE -->
-<div id="cart-button" onclick="toggleCart()">
-    🛒 <span id="cart-count">0</span>
-</div>
-
-<!-- PANEL CARRITO -->
-<div id="cart-panel">
-    <h2>Tu Carrito</h2>
-    <ul id="lista"></ul>
-    <h3>Total: $<span id="total">0</span></h3>
-    <button class="btn" onclick="finalizar()">Finalizar compra por WhatsApp</button>
+<div class="carrito" onclick="finalizarCompra()">
+🛒 Finalizar Compra
 </div>
 
 <footer>
-    © 2026 Lo de Sofi - España 1490 - Formosa Capital - WhatsApp 93704626684
+© 2026 Lo de Sofi - Todos los derechos reservados
 </footer>
 
 <script>
+
 let carrito = [];
 
 function agregar(nombre, precio){
-    let producto = carrito.find(p => p.nombre === nombre);
-
-    if(producto){
-        producto.cantidad++;
-    } else {
-        carrito.push({nombre, precio, cantidad:1});
-    }
-
-    actualizar();
+    carrito.push({nombre, precio});
+    alert(nombre + " agregado al carrito");
 }
 
-function eliminar(nombre){
-    carrito = carrito.filter(p => p.nombre !== nombre);
-    actualizar();
-}
-
-function actualizar(){
-    let lista = document.getElementById("lista");
-    lista.innerHTML = "";
-    let total = 0;
-    let cantidadTotal = 0;
-
-    carrito.forEach(item=>{
-        total += item.precio * item.cantidad;
-        cantidadTotal += item.cantidad;
-
-        let li = document.createElement("li");
-        li.innerHTML = `
-        ${item.nombre} x${item.cantidad} - $${item.precio * item.cantidad}
-        <button onclick="eliminar('${item.nombre}')" style="margin-left:10px;">❌</button>
-        `;
-        lista.appendChild(li);
-    });
-
-    document.getElementById("total").textContent = total;
-    document.getElementById("cart-count").textContent = cantidadTotal;
-}
-
-function toggleCart(){
-    document.getElementById("cart-panel").classList.toggle("open");
-}
-
-function finalizar(){
+function finalizarCompra(){
     if(carrito.length === 0){
         alert("El carrito está vacío");
         return;
     }
 
-    let mensaje = "Hola! Quiero hacer este pedido:%0A";
+    let mensaje = "Hola, quiero comprar:%0A";
     let total = 0;
 
     carrito.forEach(item=>{
-        mensaje += `- ${item.nombre} x${item.cantidad} - $${item.precio * item.cantidad}%0A`;
-        total += item.precio * item.cantidad;
+        mensaje += "- " + item.nombre + " $" + item.precio + "%0A";
+        total += item.precio;
     });
 
-    mensaje += `%0ATotal: $${total}`;
+    mensaje += "%0ATotal: $" + total;
 
-    let telefono = "5493704626684";
-
-    window.open("https://wa.me/" + telefono + "?text=" + mensaje, "_blank");
+    window.open("https://wa.me/5493704626684?text=" + mensaje);
 }
+
+function buscarProducto(){
+    let input = document.getElementById("buscador").value.toLowerCase();
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        let texto = card.innerText.toLowerCase();
+        if(texto.includes(input)){
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
+
 </script>
 
 </body>
