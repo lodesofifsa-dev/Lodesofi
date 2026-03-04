@@ -239,6 +239,7 @@ let products=[
 ];
 
 let cart=JSON.parse(localStorage.getItem("cart"))||[];
+let categoriaActiva=localStorage.getItem("categoriaActiva")||"Todos";
 
 function saveCart(){
 localStorage.setItem("cart",JSON.stringify(cart));
@@ -259,12 +260,21 @@ container.innerHTML+=`
 }
 
 function filterCategory(cat){
+categoriaActiva=cat;
+localStorage.setItem("categoriaActiva",cat);
+
 if(cat==="Todos") renderProducts(products);
 else renderProducts(products.filter(p=>p.category===cat));
 }
 
 document.getElementById("search").addEventListener("input",function(){
 const value=this.value.toLowerCase();
+
+if(value===""){
+filterCategory(categoriaActiva);
+return;
+}
+
 renderProducts(products.filter(p=>p.name.toLowerCase().includes(value)));
 });
 
@@ -304,7 +314,7 @@ ${item.qty}
 });
 
 let envio=3000;
-let descuento= total>20000 ? total*0.10 : 0;
+let descuento= total>40000 ? total*0.10 : 0;
 let totalFinal= total + envio - descuento;
 
 cartTotal.innerHTML=`
@@ -363,7 +373,8 @@ message+=`%0A*TOTAL FINAL: $${totalFinal}*`;
 window.open(`https://wa.me/5493704626684?text=${message}`);
 }
 
-renderProducts(products);
+/* 🔥 CARGA INICIAL INTELIGENTE */
+filterCategory(categoriaActiva);
 updateCart();
 </script>
 
