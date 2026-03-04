@@ -9,7 +9,7 @@
 body{
     margin:0;
     font-family: Arial, sans-serif;
-    background:#f2f2f2;
+    background:#f4f6f8;
 }
 
 header{
@@ -19,16 +19,29 @@ header{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    flex-wrap:wrap;
 }
 
-nav a{
-    color:white;
-    margin-left:15px;
-    text-decoration:none;
+nav{
+    margin-top:10px;
+}
+
+nav button{
+    background:white;
+    color:#2e7d32;
+    border:none;
+    padding:8px 12px;
+    margin:4px;
+    border-radius:6px;
+    cursor:pointer;
     font-weight:bold;
 }
 
-.buscador-container{
+nav button:hover{
+    background:#e8f5e9;
+}
+
+.buscador{
     text-align:center;
     padding:20px;
     background:white;
@@ -40,20 +53,10 @@ nav a{
     padding:12px;
     border-radius:8px;
     border:1px solid #ccc;
-    font-size:16px;
 }
 
 .section{
     padding:40px 20px;
-}
-
-.section h2{
-    text-align:center;
-    margin-bottom:30px;
-}
-
-.categoria{
-    margin-top:60px;
 }
 
 .grid{
@@ -97,9 +100,10 @@ nav a{
     right:20px;
     background:#2e7d32;
     color:white;
-    padding:15px;
+    padding:15px 20px;
     border-radius:50px;
     cursor:pointer;
+    font-weight:bold;
 }
 
 footer{
@@ -117,104 +121,74 @@ footer{
 <header>
     <h2>Lo de Sofi</h2>
     <nav>
-        <a href="#">Inicio</a>
-        <a href="#productos">Productos</a>
+        <button onclick="filtrar('all')">Ver Todo</button>
+        <button onclick="filtrar('limpieza')">Limpieza</button>
+        <button onclick="filtrar('hogar')">Hogar</button>
+        <button onclick="filtrar('plasticos')">Plásticos</button>
+        <button onclick="filtrar('bano')">Baño</button>
+        <button onclick="filtrar('bazar')">Bazar</button>
+        <button onclick="filtrar('sahumerios')">Sahumerios</button>
     </nav>
 </header>
 
-<div class="buscador-container">
+<div class="buscador">
     <input type="text" id="buscador" placeholder="Buscar productos..." onkeyup="buscarProducto()">
 </div>
 
-<section class="section" id="productos">
-    <h2>Nuestros Productos</h2>
+<section class="section">
+<div class="grid">
 
-    <!-- LIMPIEZA -->
-    <div class="categoria">
-        <h2>🧼 Limpieza</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="imagenes/limpieza1.jpg">
-                <h3>Lavandina</h3>
-                <p>$3000</p>
-                <button class="btn" onclick="agregar('Lavandina',3000)">Agregar</button>
-            </div>
-        </div>
-    </div>
+<div class="card limpieza">
+    <img src="imagenes/limpieza1.jpg">
+    <h3>Lavandina</h3>
+    <p>$3000</p>
+    <button class="btn" onclick="agregar('Lavandina',3000)">Agregar</button>
+</div>
 
-    <!-- HOGAR -->
-    <div class="categoria">
-        <h2>🏠 Hogar</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="imagenes/hogar1.jpg">
-                <h3>Repasador</h3>
-                <p>$2500</p>
-                <button class="btn" onclick="agregar('Repasador',2500)">Agregar</button>
-            </div>
-        </div>
-    </div>
+<div class="card hogar">
+    <img src="imagenes/hogar1.jpg">
+    <h3>Repasador</h3>
+    <p>$2500</p>
+    <button class="btn" onclick="agregar('Repasador',2500)">Agregar</button>
+</div>
 
-    <!-- PLÁSTICOS -->
-    <div class="categoria">
-        <h2>🧴 Plásticos</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="imagenes/plastico1.jpg">
-                <h3>Tupper Grande</h3>
-                <p>$5000</p>
-                <button class="btn" onclick="agregar('Tupper Grande',5000)">Agregar</button>
-            </div>
-        </div>
-    </div>
+<div class="card plasticos">
+    <img src="imagenes/plastico1.jpg">
+    <h3>Tupper Grande</h3>
+    <p>$5000</p>
+    <button class="btn" onclick="agregar('Tupper Grande',5000)">Agregar</button>
+</div>
 
-    <!-- BAÑO -->
-    <div class="categoria">
-        <h2>🚿 Baño</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="imagenes/bano1.jpg">
-                <h3>Cortina de baño</h3>
-                <p>$8000</p>
-                <button class="btn" onclick="agregar('Cortina de baño',8000)">Agregar</button>
-            </div>
-        </div>
-    </div>
+<div class="card bano">
+    <img src="imagenes/bano1.jpg">
+    <h3>Cortina de baño</h3>
+    <p>$8000</p>
+    <button class="btn" onclick="agregar('Cortina de baño',8000)">Agregar</button>
+</div>
 
-    <!-- BAZAR -->
-    <div class="categoria">
-        <h2>🍽️ Bazar</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="imagenes/bazar1.jpg">
-                <h3>Juego de vasos</h3>
-                <p>$12000</p>
-                <button class="btn" onclick="agregar('Juego de vasos',12000)">Agregar</button>
-            </div>
-        </div>
-    </div>
+<div class="card bazar">
+    <img src="imagenes/bazar1.jpg">
+    <h3>Juego de vasos</h3>
+    <p>$12000</p>
+    <button class="btn" onclick="agregar('Juego de vasos',12000)">Agregar</button>
+</div>
 
-    <!-- SAHUMERIOS -->
-    <div class="categoria">
-        <h2>🕯️ Sahumerios</h2>
-        <div class="grid">
-            <div class="card">
-                <img src="imagenes/sahumerio1.jpg">
-                <h3>Sahumerio Lavanda</h3>
-                <p>$1500</p>
-                <button class="btn" onclick="agregar('Sahumerio Lavanda',1500)">Agregar</button>
-            </div>
-        </div>
-    </div>
+<div class="card sahumerios">
+    <img src="imagenes/sahumerio1.jpg">
+    <h3>Sahumerio Lavanda</h3>
+    <p>$1500</p>
+    <button class="btn" onclick="agregar('Sahumerio Lavanda',1500)">Agregar</button>
+</div>
 
+</div>
 </section>
 
-<div class="carrito" onclick="finalizarCompra()">
-🛒 Finalizar Compra
+<div class="carrito" onclick="mostrarCarrito()">
+🛒 Carrito (<span id="contadorCarrito">0</span>)
 </div>
 
 <footer>
-© 2026 Lo de Sofi - Todos los derechos reservados
+© 2026 Lo de Sofi
 </footer>
 
 <script>
@@ -223,39 +197,54 @@ let carrito = [];
 
 function agregar(nombre, precio){
     carrito.push({nombre, precio});
-    alert(nombre + " agregado al carrito");
+    document.getElementById("contadorCarrito").innerText = carrito.length;
 }
 
-function finalizarCompra(){
+function mostrarCarrito(){
     if(carrito.length === 0){
         alert("El carrito está vacío");
         return;
     }
 
-    let mensaje = "Hola, quiero comprar:%0A";
+    let mensaje = "🛒 Tu carrito:\n\n";
     let total = 0;
 
-    carrito.forEach(item=>{
-        mensaje += "- " + item.nombre + " $" + item.precio + "%0A";
+    carrito.forEach((item,i)=>{
+        mensaje += (i+1)+". "+item.nombre+" - $"+item.precio+"\n";
         total += item.precio;
     });
 
-    mensaje += "%0ATotal: $" + total;
+    mensaje += "\nTotal: $"+total;
 
-    window.open("https://wa.me/5493704626684?text=" + mensaje);
+    if(confirm(mensaje+"\n\n¿Enviar pedido por WhatsApp?")){
+        let mensajeWA = "Hola, quiero comprar:%0A";
+        carrito.forEach(item=>{
+            mensajeWA += "- "+item.nombre+" $"+item.precio+"%0A";
+        });
+        mensajeWA += "%0ATotal: $"+total;
+
+        window.open("https://wa.me/5493704626684?text="+mensajeWA);
+    }
+}
+
+function filtrar(categoria){
+    let cards = document.querySelectorAll(".card");
+    cards.forEach(card=>{
+        if(categoria === "all"){
+            card.style.display = "block";
+        }else{
+            card.style.display = card.classList.contains(categoria) ? "block" : "none";
+        }
+    });
 }
 
 function buscarProducto(){
     let input = document.getElementById("buscador").value.toLowerCase();
     let cards = document.querySelectorAll(".card");
 
-    cards.forEach(card => {
+    cards.forEach(card=>{
         let texto = card.innerText.toLowerCase();
-        if(texto.includes(input)){
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
-        }
+        card.style.display = texto.includes(input) ? "block" : "none";
     });
 }
 
