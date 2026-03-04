@@ -18,26 +18,21 @@ header{
   background:#000;
   padding:15px;
   display:flex;
-  justify-content:space-between;
-  align-items:center;
-  position:sticky;
-  top:0;
-  z-index:1000;
+  flex-direction:column;
+  gap:10px;
 }
 
 h1{
   color:#d4af37;
   margin:0;
+  text-align:center;
 }
 
 #search{
-  padding:8px;
-  width:200px;
-}
-
-.cart-icon{
-  cursor:pointer;
-  font-size:18px;
+  padding:10px;
+  width:100%;
+  border:none;
+  border-radius:5px;
 }
 
 /* CATEGORÍAS */
@@ -45,7 +40,7 @@ nav{
   background:#1a1a1a;
   padding:10px;
   display:flex;
-  gap:15px;
+  gap:10px;
   overflow-x:auto;
 }
 
@@ -53,40 +48,43 @@ nav button{
   background:#d4af37;
   border:none;
   padding:8px 12px;
-  cursor:pointer;
   font-weight:bold;
+  cursor:pointer;
 }
 
 /* PRODUCTOS */
 .products{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:20px;
-  padding:20px;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:15px;
+  padding:15px;
 }
 
 .card{
   background:#1a1a1a;
-  padding:15px;
+  padding:10px;
   text-align:center;
   border:1px solid #d4af37;
+  border-radius:8px;
 }
 
 .card img{
   width:100%;
-  height:150px;
+  height:140px;
   object-fit:cover;
+  border-radius:5px;
 }
 
 .add-btn{
   background:#d4af37;
   border:none;
   padding:8px;
-  margin-top:10px;
+  margin-top:8px;
   font-weight:bold;
+  cursor:pointer;
 }
 
-/* OVERLAY OSCURO */
+/* OVERLAY */
 .overlay{
   position:fixed;
   top:0;
@@ -98,18 +96,18 @@ nav button{
   z-index:999;
 }
 
-/* CARRITO DESLIZABLE */
+/* CARRITO */
 .cart{
   position:fixed;
   right:-400px;
   top:0;
-  width:380px;
+  width:350px;
   height:100%;
   background:#000;
   border-left:2px solid #d4af37;
   padding:20px;
   overflow-y:auto;
-  transition:0.3s ease;
+  transition:0.3s;
   z-index:1000;
 }
 
@@ -131,10 +129,8 @@ nav button{
 .close-cart{
   font-size:22px;
   cursor:pointer;
-  color:#fff;
 }
 
-/* ITEMS */
 .cart-item{
   display:flex;
   justify-content:space-between;
@@ -147,6 +143,7 @@ nav button{
   border:none;
   padding:4px 8px;
   margin:0 3px;
+  cursor:pointer;
 }
 
 .remove-btn{
@@ -154,6 +151,7 @@ nav button{
   border:none;
   padding:4px 6px;
   color:#fff;
+  cursor:pointer;
 }
 
 .checkout{
@@ -164,6 +162,58 @@ nav button{
   font-weight:bold;
   margin-top:20px;
   font-size:16px;
+  cursor:pointer;
+}
+
+/* BOTÓN FLOTANTE */
+.floating-cart{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:65px;
+  height:65px;
+  background:#d4af37;
+  color:#000;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  cursor:pointer;
+  box-shadow:0 0 20px rgba(212,175,55,0.7);
+  z-index:2000;
+  transition:0.3s;
+}
+
+.floating-cart:hover{
+  transform:scale(1.1);
+}
+
+.cart-badge{
+  position:absolute;
+  top:-5px;
+  right:-5px;
+  background:red;
+  color:#fff;
+  font-size:14px;
+  font-weight:bold;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* ANIMACIÓN */
+.bounce{
+  animation:bounce 0.4s;
+}
+
+@keyframes bounce{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.2);}
+  100%{transform:scale(1);}
 }
 </style>
 </head>
@@ -172,7 +222,6 @@ nav button{
 <header>
 <h1>Tu Tienda</h1>
 <input type="text" id="search" placeholder="Buscar...">
-<div class="cart-icon" onclick="toggleCart()">🛒 (<span id="cart-count">0</span>)</div>
 </header>
 
 <nav>
@@ -198,112 +247,108 @@ nav button{
   <button class="checkout" onclick="sendWhatsApp()">Finalizar por WhatsApp</button>
 </div>
 
+<div class="floating-cart" id="floatingCart" onclick="toggleCart()">
+  🛒
+  <span id="cart-count" class="cart-badge">0</span>
+</div>
+
 <script>
-let products = [
-  {id:1, name:"Lavandina", price:1500, category:"Limpieza", img:"https://via.placeholder.com/200"},
-  {id:2, name:"Escoba", price:2500, category:"Hogar", img:"https://via.placeholder.com/200"},
-  {id:3, name:"Balde plástico", price:3000, category:"Plásticos", img:"https://via.placeholder.com/200"},
-  {id:4, name:"Desodorante baño", price:1200, category:"Baño", img:"https://via.placeholder.com/200"},
-  {id:5, name:"Taza", price:2000, category:"Bazar", img:"https://via.placeholder.com/200"},
-  {id:6, name:"Sahumerios Hexagonales", price:1000, category:"Sahumerios", img:"https://via.placeholder.com/200"}
+let products=[
+{id:1,name:"Lavandina",price:1500,category:"Limpieza",img:"https://via.placeholder.com/200"},
+{id:2,name:"Escoba",price:2500,category:"Hogar",img:"https://via.placeholder.com/200"},
+{id:3,name:"Balde plástico",price:3000,category:"Plásticos",img:"https://via.placeholder.com/200"},
+{id:4,name:"Desodorante baño",price:1200,category:"Baño",img:"https://via.placeholder.com/200"},
+{id:5,name:"Taza",price:2000,category:"Bazar",img:"https://via.placeholder.com/200"},
+{id:6,name:"Sahumerios Hexagonales",price:1000,category:"Sahumerios",img:"https://via.placeholder.com/200"}
 ];
 
-let cart = [];
+let cart=[];
 
 function renderProducts(list){
-  const container = document.getElementById("product-list");
-  container.innerHTML="";
-  list.forEach(p=>{
-    container.innerHTML+=`
-      <div class="card">
-        <img src="${p.img}">
-        <h3>${p.name}</h3>
-        <p>$${p.price}</p>
-        <button class="add-btn" onclick="addToCart(${p.id})">Agregar</button>
-      </div>
-    `;
-  });
+const container=document.getElementById("product-list");
+container.innerHTML="";
+list.forEach(p=>{
+container.innerHTML+=`
+<div class="card">
+<img src="${p.img}">
+<h3>${p.name}</h3>
+<p>$${p.price}</p>
+<button class="add-btn" onclick="addToCart(${p.id})">Agregar</button>
+</div>`;
+});
 }
 
 function filterCategory(cat){
-  if(cat==="Todos"){
-    renderProducts(products);
-  }else{
-    renderProducts(products.filter(p=>p.category===cat));
-  }
+if(cat==="Todos") renderProducts(products);
+else renderProducts(products.filter(p=>p.category===cat));
 }
 
 document.getElementById("search").addEventListener("input",function(){
-  const value=this.value.toLowerCase();
-  renderProducts(products.filter(p=>p.name.toLowerCase().includes(value)));
+const value=this.value.toLowerCase();
+renderProducts(products.filter(p=>p.name.toLowerCase().includes(value)));
 });
 
 function addToCart(id){
-  let item = cart.find(p=>p.id===id);
-  if(item){
-    item.qty++;
-  }else{
-    let product = products.find(p=>p.id===id);
-    cart.push({...product, qty:1});
-  }
-  updateCart();
+let item=cart.find(p=>p.id===id);
+if(item) item.qty++;
+else{
+let product=products.find(p=>p.id===id);
+cart.push({...product,qty:1});
+}
+updateCart();
+
+let btn=document.getElementById("floatingCart");
+btn.classList.add("bounce");
+setTimeout(()=>btn.classList.remove("bounce"),400);
 }
 
 function updateCart(){
-  const cartItems=document.getElementById("cart-items");
-  cartItems.innerHTML="";
-  let totalCount=0;
+const cartItems=document.getElementById("cart-items");
+cartItems.innerHTML="";
+let total=0;
 
-  cart.forEach(item=>{
-    totalCount+=item.qty;
-    cartItems.innerHTML+=`
-      <div class="cart-item">
-        ${item.name} 
-        <div>
-          <button class="qty-btn" onclick="changeQty(${item.id},-1)">-</button>
-          ${item.qty}
-          <button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
-          <button class="remove-btn" onclick="removeItem(${item.id})">x</button>
-        </div>
-      </div>
-    `;
-  });
+cart.forEach(item=>{
+total+=item.qty;
+cartItems.innerHTML+=`
+<div class="cart-item">
+${item.name}
+<div>
+<button class="qty-btn" onclick="changeQty(${item.id},-1)">-</button>
+${item.qty}
+<button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
+<button class="remove-btn" onclick="removeItem(${item.id})">x</button>
+</div>
+</div>`;
+});
 
-  document.getElementById("cart-count").innerText=totalCount;
+document.getElementById("cart-count").innerText=total;
 }
 
 function changeQty(id,change){
-  let item=cart.find(p=>p.id===id);
-  item.qty+=change;
-  if(item.qty<=0){
-    cart=cart.filter(p=>p.id!==id);
-  }
-  updateCart();
+let item=cart.find(p=>p.id===id);
+item.qty+=change;
+if(item.qty<=0) cart=cart.filter(p=>p.id!==id);
+updateCart();
 }
 
 function removeItem(id){
-  cart=cart.filter(p=>p.id!==id);
-  updateCart();
+cart=cart.filter(p=>p.id!==id);
+updateCart();
 }
 
 function toggleCart(){
-  document.getElementById("cart").classList.toggle("open");
-  document.getElementById("overlay").style.display =
-    document.getElementById("cart").classList.contains("open") ? "block" : "none";
+document.getElementById("cart").classList.toggle("open");
+document.getElementById("overlay").style.display=
+document.getElementById("cart").classList.contains("open")?"block":"none";
 }
 
 function sendWhatsApp(){
-  if(cart.length===0){
-    alert("El carrito está vacío");
-    return;
-  }
-
-  let message="Hola quiero comprar:%0A";
-  cart.forEach(item=>{
-    message+=`${item.name} x${item.qty}%0A`;
-  });
-
-  window.open(`https://wa.me/5493704626684?text=${message}`);
+if(cart.length===0){alert("El carrito está vacío");return;}
+let message="Hola quiero comprar:%0A";
+cart.forEach(item=>{
+message+=`${item.name} x${item.qty}%0A`;
+});
+window.open(`https://wa.me/5493704626684?text=${message}`);
 }
 
 renderProducts(products);
