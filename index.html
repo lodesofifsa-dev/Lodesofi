@@ -195,11 +195,26 @@ footer{
 
 let carrito = [];
 
+// AGREGAR PRODUCTO
 function agregar(nombre, precio){
-    carrito.push({nombre, precio});
-    document.getElementById("contadorCarrito").innerText = carrito.length;
+    let productoExistente = carrito.find(item => item.nombre === nombre);
+
+    if(productoExistente){
+        productoExistente.cantidad += 1;
+    } else {
+        carrito.push({nombre, precio, cantidad: 1});
+    }
+
+    actualizarContador();
 }
 
+// ACTUALIZA CONTADOR TOTAL DE ITEMS
+function actualizarContador(){
+    let totalCantidad = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+    document.getElementById("contadorCarrito").innerText = totalCantidad;
+}
+
+// MOSTRAR CARRITO DETALLADO
 function mostrarCarrito(){
     if(carrito.length === 0){
         alert("El carrito está vacío");
@@ -210,23 +225,35 @@ function mostrarCarrito(){
     let total = 0;
 
     carrito.forEach((item,i)=>{
-        mensaje += (i+1)+". "+item.nombre+" - $"+item.precio+"\n";
-        total += item.precio;
+        let subtotal = item.precio * item.cantidad;
+        mensaje += 
+        (i+1)+". "+item.nombre+
+        "\n   Cantidad: "+item.cantidad+
+        "\n   Subtotal: $"+subtotal+"\n\n";
+
+        total += subtotal;
     });
 
-    mensaje += "\nTotal: $"+total;
+    mensaje += "TOTAL: $"+total+"\n\n";
+    mensaje += "¿Enviar pedido por WhatsApp?";
 
-    if(confirm(mensaje+"\n\n¿Enviar pedido por WhatsApp?")){
+    if(confirm(mensaje)){
         let mensajeWA = "Hola, quiero comprar:%0A";
+        
         carrito.forEach(item=>{
-            mensajeWA += "- "+item.nombre+" $"+item.precio+"%0A";
+            mensajeWA += 
+            "- "+item.nombre+
+            " x"+item.cantidad+
+            " ($"+(item.precio*item.cantidad)+")%0A";
         });
+
         mensajeWA += "%0ATotal: $"+total;
 
         window.open("https://wa.me/5493704626684?text="+mensajeWA);
     }
 }
 
+// FILTRO POR CATEGORIA
 function filtrar(categoria){
     let cards = document.querySelectorAll(".card");
     cards.forEach(card=>{
@@ -238,6 +265,7 @@ function filtrar(categoria){
     });
 }
 
+// BUSCADOR
 function buscarProducto(){
     let input = document.getElementById("buscador").value.toLowerCase();
     let cards = document.querySelectorAll(".card");
