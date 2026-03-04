@@ -13,6 +13,7 @@ body{
   color:#fff;
 }
 
+/* HEADER */
 header{
   background:#000;
   padding:15px;
@@ -21,6 +22,7 @@ header{
   align-items:center;
   position:sticky;
   top:0;
+  z-index:1000;
 }
 
 h1{
@@ -33,6 +35,12 @@ h1{
   width:200px;
 }
 
+.cart-icon{
+  cursor:pointer;
+  font-size:18px;
+}
+
+/* CATEGORÍAS */
 nav{
   background:#1a1a1a;
   padding:10px;
@@ -49,6 +57,7 @@ nav button{
   font-weight:bold;
 }
 
+/* PRODUCTOS */
 .products{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
@@ -69,10 +78,6 @@ nav button{
   object-fit:cover;
 }
 
-button{
-  cursor:pointer;
-}
-
 .add-btn{
   background:#d4af37;
   border:none;
@@ -81,55 +86,84 @@ button{
   font-weight:bold;
 }
 
+/* OVERLAY OSCURO */
+.overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  z-index:999;
+}
+
+/* CARRITO DESLIZABLE */
 .cart{
   position:fixed;
-  right:0;
+  right:-400px;
   top:0;
-  width:300px;
+  width:380px;
   height:100%;
   background:#000;
   border-left:2px solid #d4af37;
-  padding:15px;
+  padding:20px;
   overflow-y:auto;
-  display:none;
+  transition:0.3s ease;
+  z-index:1000;
+}
+
+.cart.open{
+  right:0;
+}
+
+.cart-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
 .cart h2{
   color:#d4af37;
+  margin:0;
 }
 
+.close-cart{
+  font-size:22px;
+  cursor:pointer;
+  color:#fff;
+}
+
+/* ITEMS */
 .cart-item{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:10px;
+  margin:15px 0;
 }
 
 .qty-btn{
   background:#d4af37;
   border:none;
-  padding:3px 6px;
+  padding:4px 8px;
   margin:0 3px;
 }
 
 .remove-btn{
   background:red;
   border:none;
-  padding:3px 6px;
+  padding:4px 6px;
   color:#fff;
 }
 
 .checkout{
   background:#25D366;
   border:none;
-  padding:10px;
+  padding:12px;
   width:100%;
   font-weight:bold;
-  margin-top:15px;
-}
-
-.cart-icon{
-  cursor:pointer;
+  margin-top:20px;
+  font-size:16px;
 }
 </style>
 </head>
@@ -153,10 +187,15 @@ button{
 
 <div class="products" id="product-list"></div>
 
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
 <div class="cart" id="cart">
-<h2>Carrito</h2>
-<div id="cart-items"></div>
-<button class="checkout" onclick="sendWhatsApp()">Finalizar por WhatsApp</button>
+  <div class="cart-header">
+    <h2>Carrito</h2>
+    <span class="close-cart" onclick="toggleCart()">✖</span>
+  </div>
+  <div id="cart-items"></div>
+  <button class="checkout" onclick="sendWhatsApp()">Finalizar por WhatsApp</button>
 </div>
 
 <script>
@@ -248,8 +287,9 @@ function removeItem(id){
 }
 
 function toggleCart(){
-  const cartDiv=document.getElementById("cart");
-  cartDiv.style.display=cartDiv.style.display==="block"?"none":"block";
+  document.getElementById("cart").classList.toggle("open");
+  document.getElementById("overlay").style.display =
+    document.getElementById("cart").classList.contains("open") ? "block" : "none";
 }
 
 function sendWhatsApp(){
