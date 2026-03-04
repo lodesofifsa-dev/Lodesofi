@@ -13,7 +13,6 @@ body{
   color:#fff;
 }
 
-/* HEADER */
 header{
   background:#000;
   padding:15px;
@@ -35,7 +34,6 @@ h1{
   border-radius:5px;
 }
 
-/* CATEGORÍAS */
 nav{
   background:#1a1a1a;
   padding:10px;
@@ -52,7 +50,6 @@ nav button{
   cursor:pointer;
 }
 
-/* PRODUCTOS */
 .products{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
@@ -84,7 +81,6 @@ nav button{
   cursor:pointer;
 }
 
-/* OVERLAY */
 .overlay{
   position:fixed;
   top:0;
@@ -96,12 +92,11 @@ nav button{
   z-index:999;
 }
 
-/* CARRITO */
 .cart{
   position:fixed;
   right:-400px;
   top:0;
-  width:350px;
+  width:360px;
   height:100%;
   background:#000;
   border-left:2px solid #d4af37;
@@ -111,9 +106,7 @@ nav button{
   z-index:1000;
 }
 
-.cart.open{
-  right:0;
-}
+.cart.open{ right:0; }
 
 .cart-header{
   display:flex;
@@ -121,21 +114,14 @@ nav button{
   align-items:center;
 }
 
-.cart h2{
-  color:#d4af37;
-  margin:0;
-}
+.cart h2{ color:#d4af37; margin:0; }
 
-.close-cart{
-  font-size:22px;
-  cursor:pointer;
-}
+.close-cart{ font-size:22px; cursor:pointer; }
 
 .cart-item{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
   margin:15px 0;
+  border-bottom:1px solid #333;
+  padding-bottom:10px;
 }
 
 .qty-btn{
@@ -165,7 +151,12 @@ nav button{
   cursor:pointer;
 }
 
-/* BOTÓN FLOTANTE */
+.total-box{
+  margin-top:15px;
+  padding-top:10px;
+  border-top:2px solid #d4af37;
+}
+
 .floating-cart{
   position:fixed;
   bottom:20px;
@@ -182,11 +173,6 @@ nav button{
   cursor:pointer;
   box-shadow:0 0 20px rgba(212,175,55,0.7);
   z-index:2000;
-  transition:0.3s;
-}
-
-.floating-cart:hover{
-  transform:scale(1.1);
 }
 
 .cart-badge{
@@ -204,23 +190,12 @@ nav button{
   align-items:center;
   justify-content:center;
 }
-
-/* ANIMACIÓN */
-.bounce{
-  animation:bounce 0.4s;
-}
-
-@keyframes bounce{
-  0%{transform:scale(1);}
-  50%{transform:scale(1.2);}
-  100%{transform:scale(1);}
-}
 </style>
 </head>
 <body>
 
 <header>
-<h1>Lo de Sofi</h1>
+<h1>LO DE SOFI</h1>
 <input type="text" id="search" placeholder="Buscar...">
 </header>
 
@@ -244,10 +219,11 @@ nav button{
     <span class="close-cart" onclick="toggleCart()">✖</span>
   </div>
   <div id="cart-items"></div>
+  <div id="cart-total"></div>
   <button class="checkout" onclick="sendWhatsApp()">Finalizar por WhatsApp</button>
 </div>
 
-<div class="floating-cart" id="floatingCart" onclick="toggleCart()">
+<div class="floating-cart" onclick="toggleCart()">
   🛒
   <span id="cart-count" class="cart-badge">0</span>
 </div>
@@ -262,7 +238,11 @@ let products=[
 {id:6,name:"Sahumerios Hexagonales",price:1000,category:"Sahumerios",img:"https://via.placeholder.com/200"}
 ];
 
-let cart=[];
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+
+function saveCart(){
+localStorage.setItem("cart",JSON.stringify(cart));
+}
 
 function renderProducts(list){
 const container=document.getElementById("product-list");
@@ -296,32 +276,47 @@ let product=products.find(p=>p.id===id);
 cart.push({...product,qty:1});
 }
 updateCart();
-
-let btn=document.getElementById("floatingCart");
-btn.classList.add("bounce");
-setTimeout(()=>btn.classList.remove("bounce"),400);
+saveCart();
 }
 
 function updateCart(){
 const cartItems=document.getElementById("cart-items");
+const cartTotal=document.getElementById("cart-total");
 cartItems.innerHTML="";
 let total=0;
+let totalCantidad=0;
 
 cart.forEach(item=>{
-total+=item.qty;
+let subtotal=item.price*item.qty;
+total+=subtotal;
+totalCantidad+=item.qty;
+
 cartItems.innerHTML+=`
 <div class="cart-item">
-${item.name}
-<div>
+<strong>${item.name}</strong><br>
+$${item.price} c/u<br>
 <button class="qty-btn" onclick="changeQty(${item.id},-1)">-</button>
 ${item.qty}
 <button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
 <button class="remove-btn" onclick="removeItem(${item.id})">x</button>
-</div>
+<div style="float:right;"><strong>$${subtotal}</strong></div>
 </div>`;
 });
 
-document.getElementById("cart-count").innerText=total;
+let envio=3000;
+let descuento= total>20000 ? total*0.10 : 0;
+let totalFinal= total + envio - descuento;
+
+cartTotal.innerHTML=`
+<div class="total-box">
+Subtotal: $${total}<br>
+Envío: $${envio}<br>
+Descuento: -$${descuento}<br>
+<h3 style="color:#d4af37;">Total: $${totalFinal}</h3>
+</div>
+`;
+
+document.getElementById("cart-count").innerText=totalCantidad;
 }
 
 function changeQty(id,change){
@@ -329,11 +324,13 @@ let item=cart.find(p=>p.id===id);
 item.qty+=change;
 if(item.qty<=0) cart=cart.filter(p=>p.id!==id);
 updateCart();
+saveCart();
 }
 
 function removeItem(id){
 cart=cart.filter(p=>p.id!==id);
 updateCart();
+saveCart();
 }
 
 function toggleCart(){
@@ -344,14 +341,30 @@ document.getElementById("cart").classList.contains("open")?"block":"none";
 
 function sendWhatsApp(){
 if(cart.length===0){alert("El carrito está vacío");return;}
-let message="Hola quiero comprar:%0A";
+
+let total=0;
+let envio=3000;
+let message="Hola quiero comprar:%0A%0A";
+
 cart.forEach(item=>{
-message+=`${item.name} x${item.qty}%0A`;
+let subtotal=item.price*item.qty;
+total+=subtotal;
+message+=`${item.name} x${item.qty} = $${subtotal}%0A`;
 });
+
+let descuento= total>20000 ? total*0.10 : 0;
+let totalFinal= total + envio - descuento;
+
+message+=`%0ASubtotal: $${total}`;
+message+=`%0AEnvío: $${envio}`;
+message+=`%0ADescuento: -$${descuento}`;
+message+=`%0A*TOTAL FINAL: $${totalFinal}*`;
+
 window.open(`https://wa.me/5493704626684?text=${message}`);
 }
 
 renderProducts(products);
+updateCart();
 </script>
 
 </body>
