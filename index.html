@@ -50,6 +50,11 @@ nav button{
   cursor:pointer;
 }
 
+nav button.active{
+  background:#fff;
+  color:#000;
+}
+
 .products{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
@@ -199,14 +204,14 @@ nav button{
 <input type="text" id="search" placeholder="Buscar...">
 </header>
 
-<nav>
-<button onclick="filterCategory('Todos')">Todos</button>
-<button onclick="filterCategory('Limpieza')">Limpieza</button>
-<button onclick="filterCategory('Hogar')">Hogar</button>
-<button onclick="filterCategory('Plásticos')">Plásticos</button>
-<button onclick="filterCategory('Baño')">Baño</button>
-<button onclick="filterCategory('Bazar')">Bazar</button>
-<button onclick="filterCategory('Sahumerios')">Sahumerios</button>
+<nav id="category-nav">
+<button data-cat="Novedades">Novedades</button>
+<button data-cat="Limpieza">Limpieza</button>
+<button data-cat="Hogar">Hogar</button>
+<button data-cat="Plásticos">Plásticos</button>
+<button data-cat="Baño">Baño</button>
+<button data-cat="Bazar">Bazar</button>
+<button data-cat="Sahumerios">Sahumerios</button>
 </nav>
 
 <div class="products" id="product-list"></div>
@@ -230,19 +235,27 @@ nav button{
 
 <script>
 let products=[
-{id:1,name:"Lavandina Ayudin Original 1LT",price:1500,category:"Limpieza",img:"imagenes/lavandina-ayudin.jpeg"},
-{id:2,name:"Lavandina X5 Original 1LT",price:1500,category:"Limpieza",img:"imagenes/comun1.png"},
-{id:3,name:"Desodorante de piso Poett 900ml",price:2000,category:"Limpieza",img:"imagenes/poett1.jpg"},
-{id:4,name:"Desodorante de piso Poett 900ml",price:2000,category:"Limpieza",img:"imagenes/poett2.jpg"},
-{id:5,name:"Desodorante de piso Poett 900ml",price:2000,category:"Limpieza",img:"imagenes/poett.webp"},
-{id:6,name:"Sahumerios Hexagonales",price:1000,category:"Sahumerios",img:"https://via.placeholder.com/200"}
+{id:1,name:"Lavandina Ayudin Original 1LT",price:1500,category:"Limpieza",img:"imagenes/lavandina-ayudin.jpeg", isNew:true},
+{id:2,name:"Lavandina X5 Original 1LT",price:1500,category:"Limpieza",img:"imagenes/comun1.png", isNew:false},
+{id:3,name:"Desodorante de piso Poett 900ml",price:2000,category:"Limpieza",img:"https://via.placeholder.com/200", isNew:true},
+{id:4,name:"Desodorante baño",price:1200,category:"Baño",img:"https://via.placeholder.com/200", isNew:false},
+{id:5,name:"Taza",price:2000,category:"Bazar",img:"https://via.placeholder.com/200", isNew:true},
+{id:6,name:"Sahumerios Hexagonales",price:1000,category:"Sahumerios",img:"https://via.placeholder.com/200", isNew:false}
 ];
 
 let cart=JSON.parse(localStorage.getItem("cart"))||[];
-let categoriaActiva=localStorage.getItem("categoriaActiva")||"Todos";
+let categoriaActiva=localStorage.getItem("categoriaActiva")||"Novedades";
+let searchActiva=localStorage.getItem("searchActiva")||"";
+let cartOpen=localStorage.getItem("cartOpen")==="true"?true:false;
 
 function saveCart(){
 localStorage.setItem("cart",JSON.stringify(cart));
+}
+
+function saveState(){
+localStorage.setItem("categoriaActiva",categoriaActiva);
+localStorage.setItem("searchActiva",searchActiva);
+localStorage.setItem("cartOpen",cartOpen);
 }
 
 function renderProducts(list){
@@ -261,23 +274,38 @@ container.innerHTML+=`
 
 function filterCategory(cat){
 categoriaActiva=cat;
-localStorage.setItem("categoriaActiva",cat);
+searchActiva=""; // limpia búsqueda cuando cambias categoría
+updateNavActive();
+renderCategory();
+saveState();
+}
 
-if(cat==="Todos") renderProducts(products);
-else renderProducts(products.filter(p=>p.category===cat));
+function renderCategory(){
+if(categoriaActiva==="Novedades"){
+renderProducts(products.filter(p=>p.isNew));
+} else {
+renderProducts(products.filter(p=>p.category===categoriaActiva));
+}
+}
+
+function updateNavActive(){
+document.querySelectorAll("#category-nav button").forEach(b=>{
+b.classList.toggle("active",b.dataset.cat===categoriaActiva);
+}
+);
 }
 
 document.getElementById("search").addEventListener("input",function(){
-const value=this.value.toLowerCase();
-
-if(value===""){
-filterCategory(categoriaActiva);
-return;
+searchActiva=this.value.toLowerCase();
+if(searchActiva===""){
+renderCategory();
+} else {
+renderProducts(products.filter(p=>p.name.toLowerCase().includes(searchActiva)));
 }
-
-renderProducts(products.filter(p=>p.name.toLowerCase().includes(value)));
+saveState();
 });
 
+// carrito
 function addToCart(id){
 let item=cart.find(p=>p.id===id);
 if(item) item.qty++;
@@ -314,7 +342,7 @@ ${item.qty}
 });
 
 let envio=3000;
-let descuento= total>40000 ? total*0.10 : 0;
+let descuento= total>20000 ? total*0.10 : 0;
 let totalFinal= total + envio - descuento;
 
 cartTotal.innerHTML=`
@@ -329,6 +357,7 @@ Descuento: -$${descuento}<br>
 document.getElementById("cart-count").innerText=totalCantidad;
 }
 
+// qty y remove
 function changeQty(id,change){
 let item=cart.find(p=>p.id===id);
 item.qty+=change;
@@ -343,12 +372,16 @@ updateCart();
 saveCart();
 }
 
+// toggle cart
 function toggleCart(){
 document.getElementById("cart").classList.toggle("open");
+cartOpen=document.getElementById("cart").classList.contains("open");
 document.getElementById("overlay").style.display=
-document.getElementById("cart").classList.contains("open")?"block":"none";
+cartOpen?"block":"none";
+saveState();
 }
 
+// WhatsApp
 function sendWhatsApp(){
 if(cart.length===0){alert("El carrito está vacío");return;}
 
@@ -373,8 +406,11 @@ message+=`%0A*TOTAL FINAL: $${totalFinal}*`;
 window.open(`https://wa.me/5493704626684?text=${message}`);
 }
 
-/* 🔥 CARGA INICIAL INTELIGENTE */
-filterCategory(categoriaActiva);
+// 🔥 INIT
+document.getElementById("search").value=searchActiva;
+updateNavActive();
+if(cartOpen) toggleCart();
+renderCategory();
 updateCart();
 </script>
 
