@@ -3,313 +3,270 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lo de Sofi</title>
+<title>Tu Tienda</title>
 
 <style>
 body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    background:#f5f5f5;
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#111;
+  color:#fff;
 }
 
-/* HEADER */
 header{
-    background:#0f0f0f;
-    color:#d4af37; /* DORADO */
-    padding:15px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    flex-wrap:wrap;
-    border-bottom:2px solid #d4af37;
+  background:#000;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
 }
 
-header h2{
-    margin:0;
-    color:#d4af37;
+h1{
+  color:#d4af37;
+  margin:0;
 }
 
-/* BOTONES CATEGORÍAS */
+#search{
+  padding:8px;
+  width:200px;
+}
+
 nav{
-    margin-top:10px;
+  background:#1a1a1a;
+  padding:10px;
+  display:flex;
+  gap:15px;
+  overflow-x:auto;
 }
 
 nav button{
-    background:#1a1a1a;
-    color:#d4af37;
-    border:1px solid #d4af37;
-    padding:8px 14px;
-    margin:4px;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
-    transition:0.3s;
+  background:#d4af37;
+  border:none;
+  padding:8px 12px;
+  cursor:pointer;
+  font-weight:bold;
 }
 
-nav button:hover{
-    background:#d4af37;
-    color:#000;
-}
-
-/* BUSCADOR */
-.buscador{
-    text-align:center;
-    padding:20px;
-    background:white;
-}
-
-#buscador{
-    width:60%;
-    max-width:500px;
-    padding:12px;
-    border-radius:8px;
-    border:1px solid #ccc;
-}
-
-/* PRODUCTOS */
-.section{
-    padding:40px 20px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:20px;
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
+  padding:20px;
 }
 
 .card{
-    background:white;
-    padding:15px;
-    border-radius:10px;
-    box-shadow:0 3px 10px rgba(0,0,0,0.1);
-    text-align:center;
-    transition:0.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
+  background:#1a1a1a;
+  padding:15px;
+  text-align:center;
+  border:1px solid #d4af37;
 }
 
 .card img{
-    width:100%;
-    height:180px;
-    object-fit:cover;
-    border-radius:8px;
+  width:100%;
+  height:150px;
+  object-fit:cover;
 }
 
-.card h3{
-    color:#111;
+button{
+  cursor:pointer;
 }
 
-.btn{
-    background:#0f0f0f;
-    color:#d4af37;
-    border:1px solid #d4af37;
-    padding:10px;
-    margin-top:10px;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
-    transition:0.3s;
+.add-btn{
+  background:#d4af37;
+  border:none;
+  padding:8px;
+  margin-top:10px;
+  font-weight:bold;
 }
 
-.btn:hover{
-    background:#d4af37;
-    color:#000;
+.cart{
+  position:fixed;
+  right:0;
+  top:0;
+  width:300px;
+  height:100%;
+  background:#000;
+  border-left:2px solid #d4af37;
+  padding:15px;
+  overflow-y:auto;
+  display:none;
 }
 
-/* CARRITO */
-.carrito{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#0f0f0f;
-    color:#d4af37;
-    padding:15px 20px;
-    border-radius:50px;
-    cursor:pointer;
-    font-weight:bold;
-    border:1px solid #d4af37;
-    transition:0.3s;
+.cart h2{
+  color:#d4af37;
 }
 
-.carrito:hover{
-    background:#d4af37;
-    color:#000;
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
 }
 
-/* FOOTER */
-footer{
-    background:#0f0f0f;
-    color:#d4af37;
-    text-align:center;
-    padding:15px;
-    margin-top:40px;
-    border-top:2px solid #d4af37;
+.qty-btn{
+  background:#d4af37;
+  border:none;
+  padding:3px 6px;
+  margin:0 3px;
+}
+
+.remove-btn{
+  background:red;
+  border:none;
+  padding:3px 6px;
+  color:#fff;
+}
+
+.checkout{
+  background:#25D366;
+  border:none;
+  padding:10px;
+  width:100%;
+  font-weight:bold;
+  margin-top:15px;
+}
+
+.cart-icon{
+  cursor:pointer;
 }
 </style>
 </head>
-
 <body>
 
 <header>
-    <h2>Lo de Sofi</h2>
-    <nav>
-        <button onclick="filtrar('all')">Ver Todo</button>
-        <button onclick="filtrar('limpieza')">Limpieza</button>
-        <button onclick="filtrar('hogar')">Hogar</button>
-        <button onclick="filtrar('plasticos')">Plásticos</button>
-        <button onclick="filtrar('bano')">Baño</button>
-        <button onclick="filtrar('bazar')">Bazar</button>
-        <button onclick="filtrar('sahumerios')">Sahumerios</button>
-    </nav>
+<h1>Tu Tienda</h1>
+<input type="text" id="search" placeholder="Buscar...">
+<div class="cart-icon" onclick="toggleCart()">🛒 (<span id="cart-count">0</span>)</div>
 </header>
 
-<div class="buscador">
-    <input type="text" id="buscador" placeholder="Buscar productos..." onkeyup="buscarProducto()">
+<nav>
+<button onclick="filterCategory('Todos')">Todos</button>
+<button onclick="filterCategory('Limpieza')">Limpieza</button>
+<button onclick="filterCategory('Hogar')">Hogar</button>
+<button onclick="filterCategory('Plásticos')">Plásticos</button>
+<button onclick="filterCategory('Baño')">Baño</button>
+<button onclick="filterCategory('Bazar')">Bazar</button>
+<button onclick="filterCategory('Sahumerios')">Sahumerios</button>
+</nav>
+
+<div class="products" id="product-list"></div>
+
+<div class="cart" id="cart">
+<h2>Carrito</h2>
+<div id="cart-items"></div>
+<button class="checkout" onclick="sendWhatsApp()">Finalizar por WhatsApp</button>
 </div>
-
-<section class="section">
-<div class="grid">
-
-<div class="card limpieza">
-    <img src="imagenes/limpieza1.jpg">
-    <h3>Lavandina</h3>
-    <p>$3000</p>
-    <button class="btn" onclick="agregar('Lavandina',3000)">Agregar</button>
-</div>
-
-<div class="card hogar">
-    <img src="imagenes/hogar1.jpg">
-    <h3>Repasador</h3>
-    <p>$2500</p>
-    <button class="btn" onclick="agregar('Repasador',2500)">Agregar</button>
-</div>
-
-<div class="card plasticos">
-    <img src="imagenes/plastico1.jpg">
-    <h3>Tupper Grande</h3>
-    <p>$5000</p>
-    <button class="btn" onclick="agregar('Tupper Grande',5000)">Agregar</button>
-</div>
-
-<div class="card bano">
-    <img src="imagenes/bano1.jpg">
-    <h3>Cortina de baño</h3>
-    <p>$8000</p>
-    <button class="btn" onclick="agregar('Cortina de baño',8000)">Agregar</button>
-</div>
-
-<div class="card bazar">
-    <img src="imagenes/bazar1.jpg">
-    <h3>Juego de vasos</h3>
-    <p>$12000</p>
-    <button class="btn" onclick="agregar('Juego de vasos',12000)">Agregar</button>
-</div>
-
-<div class="card sahumerios">
-    <img src="imagenes/sahumerio1.jpg">
-    <h3>Sahumerio Lavanda</h3>
-    <p>$1500</p>
-    <button class="btn" onclick="agregar('Sahumerio Lavanda',1500)">Agregar</button>
-</div>
-
-</div>
-</section>
-
-<div class="carrito" onclick="mostrarCarrito()">
-🛒 Carrito (<span id="contadorCarrito">0</span>)
-</div>
-
-<footer>
-© 2026 Lo de Sofi
-</footer>
 
 <script>
+let products = [
+  {id:1, name:"Lavandina", price:1500, category:"Limpieza", img:"https://via.placeholder.com/200"},
+  {id:2, name:"Escoba", price:2500, category:"Hogar", img:"https://via.placeholder.com/200"},
+  {id:3, name:"Balde plástico", price:3000, category:"Plásticos", img:"https://via.placeholder.com/200"},
+  {id:4, name:"Desodorante baño", price:1200, category:"Baño", img:"https://via.placeholder.com/200"},
+  {id:5, name:"Taza", price:2000, category:"Bazar", img:"https://via.placeholder.com/200"},
+  {id:6, name:"Sahumerios Hexagonales", price:1000, category:"Sahumerios", img:"https://via.placeholder.com/200"}
+];
 
-let carrito = [];
+let cart = [];
 
-// AGREGAR PRODUCTO
-function agregar(nombre, precio){
-    let productoExistente = carrito.find(item => item.nombre === nombre);
-
-    if(productoExistente){
-        productoExistente.cantidad += 1;
-    } else {
-        carrito.push({nombre, precio, cantidad: 1});
-    }
-
-    actualizarContador();
+function renderProducts(list){
+  const container = document.getElementById("product-list");
+  container.innerHTML="";
+  list.forEach(p=>{
+    container.innerHTML+=`
+      <div class="card">
+        <img src="${p.img}">
+        <h3>${p.name}</h3>
+        <p>$${p.price}</p>
+        <button class="add-btn" onclick="addToCart(${p.id})">Agregar</button>
+      </div>
+    `;
+  });
 }
 
-// ACTUALIZA CONTADOR TOTAL DE ITEMS
-function actualizarContador(){
-    let totalCantidad = carrito.reduce((acc, item) => acc + item.cantidad, 0);
-    document.getElementById("contadorCarrito").innerText = totalCantidad;
+function filterCategory(cat){
+  if(cat==="Todos"){
+    renderProducts(products);
+  }else{
+    renderProducts(products.filter(p=>p.category===cat));
+  }
 }
 
-// MOSTRAR CARRITO DETALLADO
-function mostrarCarrito(){
-    if(carrito.length === 0){
-        alert("El carrito está vacío");
-        return;
-    }
+document.getElementById("search").addEventListener("input",function(){
+  const value=this.value.toLowerCase();
+  renderProducts(products.filter(p=>p.name.toLowerCase().includes(value)));
+});
 
-    let mensaje = "🛒 Tu carrito:\n\n";
-    let total = 0;
-
-    carrito.forEach((item,i)=>{
-        let subtotal = item.precio * item.cantidad;
-        mensaje += 
-        (i+1)+". "+item.nombre+
-        "\n   Cantidad: "+item.cantidad+
-        "\n   Subtotal: $"+subtotal+"\n\n";
-
-        total += subtotal;
-    });
-
-    mensaje += "TOTAL: $"+total+"\n\n";
-    mensaje += "¿Enviar pedido por WhatsApp?";
-
-    if(confirm(mensaje)){
-        let mensajeWA = "Hola, quiero comprar:%0A";
-        
-        carrito.forEach(item=>{
-            mensajeWA += 
-            "- "+item.nombre+
-            " x"+item.cantidad+
-            " ($"+(item.precio*item.cantidad)+")%0A";
-        });
-
-        mensajeWA += "%0ATotal: $"+total;
-
-        window.open("https://wa.me/5493704626684?text="+mensajeWA);
-    }
+function addToCart(id){
+  let item = cart.find(p=>p.id===id);
+  if(item){
+    item.qty++;
+  }else{
+    let product = products.find(p=>p.id===id);
+    cart.push({...product, qty:1});
+  }
+  updateCart();
 }
 
-// FILTRO POR CATEGORIA
-function filtrar(categoria){
-    let cards = document.querySelectorAll(".card");
-    cards.forEach(card=>{
-        if(categoria === "all"){
-            card.style.display = "block";
-        }else{
-            card.style.display = card.classList.contains(categoria) ? "block" : "none";
-        }
-    });
+function updateCart(){
+  const cartItems=document.getElementById("cart-items");
+  cartItems.innerHTML="";
+  let totalCount=0;
+
+  cart.forEach(item=>{
+    totalCount+=item.qty;
+    cartItems.innerHTML+=`
+      <div class="cart-item">
+        ${item.name} 
+        <div>
+          <button class="qty-btn" onclick="changeQty(${item.id},-1)">-</button>
+          ${item.qty}
+          <button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
+          <button class="remove-btn" onclick="removeItem(${item.id})">x</button>
+        </div>
+      </div>
+    `;
+  });
+
+  document.getElementById("cart-count").innerText=totalCount;
 }
 
-// BUSCADOR
-function buscarProducto(){
-    let input = document.getElementById("buscador").value.toLowerCase();
-    let cards = document.querySelectorAll(".card");
-
-    cards.forEach(card=>{
-        let texto = card.innerText.toLowerCase();
-        card.style.display = texto.includes(input) ? "block" : "none";
-    });
+function changeQty(id,change){
+  let item=cart.find(p=>p.id===id);
+  item.qty+=change;
+  if(item.qty<=0){
+    cart=cart.filter(p=>p.id!==id);
+  }
+  updateCart();
 }
 
+function removeItem(id){
+  cart=cart.filter(p=>p.id!==id);
+  updateCart();
+}
+
+function toggleCart(){
+  const cartDiv=document.getElementById("cart");
+  cartDiv.style.display=cartDiv.style.display==="block"?"none":"block";
+}
+
+function sendWhatsApp(){
+  if(cart.length===0){
+    alert("El carrito está vacío");
+    return;
+  }
+
+  let message="Hola quiero comprar:%0A";
+  cart.forEach(item=>{
+    message+=`${item.name} x${item.qty}%0A`;
+  });
+
+  window.open(`https://wa.me/5493704626684?text=${message}`);
+}
+
+renderProducts(products);
 </script>
 
 </body>
