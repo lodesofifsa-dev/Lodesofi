@@ -75,24 +75,53 @@ nav a{
     margin-top:10px;
 }
 
-.btn-danger{
-    background:#c0392b;
-}
-
-.cart{
-    background:white;
-    padding:20px;
-    margin:40px;
-    border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.05);
-}
-
 footer{
     background:#333;
     color:white;
     text-align:center;
     padding:25px;
     margin-top:40px;
+}
+
+/* BOTON FLOTANTE */
+#cart-button{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:#6d8c3c;
+    color:white;
+    padding:12px 18px;
+    border-radius:50px;
+    cursor:pointer;
+    font-weight:bold;
+    box-shadow:0 4px 10px rgba(0,0,0,0.2);
+    z-index:1000;
+}
+
+#cart-count{
+    background:red;
+    border-radius:50%;
+    padding:3px 8px;
+    margin-left:5px;
+}
+
+/* PANEL LATERAL */
+#cart-panel{
+    position:fixed;
+    right:-400px;
+    top:0;
+    width:350px;
+    height:100%;
+    background:white;
+    box-shadow:-2px 0 10px rgba(0,0,0,0.2);
+    padding:20px;
+    transition:0.3s;
+    overflow-y:auto;
+    z-index:999;
+}
+
+#cart-panel.open{
+    right:0;
 }
 </style>
 </head>
@@ -103,7 +132,6 @@ footer{
     <nav>
         <a href="#">Inicio</a>
         <a href="#productos">Productos</a>
-        <a href="#carrito">Carrito</a>
     </nav>
 </header>
 
@@ -117,7 +145,6 @@ footer{
 
     <div class="grid">
 
-        <!-- PRODUCTO 1 -->
         <div class="card">
             <img src="imagenes/producto1.jpg" alt="Producto 1">
             <h3>Producto 1</h3>
@@ -125,7 +152,6 @@ footer{
             <button class="btn" onclick="agregar('Producto 1',5000)">Agregar al carrito</button>
         </div>
 
-        <!-- PRODUCTO 2 -->
         <div class="card">
             <img src="imagenes/producto2.jpg" alt="Producto 2">
             <h3>Producto 2</h3>
@@ -133,7 +159,6 @@ footer{
             <button class="btn" onclick="agregar('Producto 2',8000)">Agregar al carrito</button>
         </div>
 
-        <!-- PRODUCTO 3 -->
         <div class="card">
             <img src="imagenes/producto3.jpg" alt="Producto 3">
             <h3>Producto 3</h3>
@@ -144,12 +169,18 @@ footer{
     </div>
 </section>
 
-<section class="cart" id="carrito">
-    <h2>Carrito</h2>
+<!-- BOTON FLOTANTE -->
+<div id="cart-button" onclick="toggleCart()">
+    🛒 <span id="cart-count">0</span>
+</div>
+
+<!-- PANEL CARRITO -->
+<div id="cart-panel">
+    <h2>Tu Carrito</h2>
     <ul id="lista"></ul>
     <h3>Total: $<span id="total">0</span></h3>
     <button class="btn" onclick="finalizar()">Finalizar compra por WhatsApp</button>
-</section>
+</div>
 
 <footer>
     © 2026 Lo de Sofi - España 1490 - Formosa Capital - WhatsApp 93704626684
@@ -179,9 +210,11 @@ function actualizar(){
     let lista = document.getElementById("lista");
     lista.innerHTML = "";
     let total = 0;
+    let cantidadTotal = 0;
 
     carrito.forEach(item=>{
         total += item.precio * item.cantidad;
+        cantidadTotal += item.cantidad;
 
         let li = document.createElement("li");
         li.innerHTML = `
@@ -192,6 +225,11 @@ function actualizar(){
     });
 
     document.getElementById("total").textContent = total;
+    document.getElementById("cart-count").textContent = cantidadTotal;
+}
+
+function toggleCart(){
+    document.getElementById("cart-panel").classList.toggle("open");
 }
 
 function finalizar(){
@@ -210,7 +248,7 @@ function finalizar(){
 
     mensaje += `%0ATotal: $${total}`;
 
-    let telefono = "5493704626684"; //
+    let telefono = "5493704626684";
 
     window.open("https://wa.me/" + telefono + "?text=" + mensaje, "_blank");
 }
