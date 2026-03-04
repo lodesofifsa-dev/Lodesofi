@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lo de Sofi</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:#fdfaf5;
+}
+
+header{
+    background:white;
+    padding:15px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 5px rgba(0,0,0,0.05);
+}
+
+nav a{
+    margin-left:20px;
+    text-decoration:none;
+    color:#333;
+    font-weight:bold;
+}
+
+.hero{
+    background:#e8f5e9;
+    text-align:center;
+    padding:60px 20px;
+}
+
+.section{
+    padding:50px 40px;
+    text-align:center;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+.card{
+    background:white;
+    padding:15px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:8px;
+    background:#eee;
+}
+
+.card h3{
+    margin:15px 0 5px 0;
+}
+
+.btn{
+    background:#6d8c3c;
+    color:white;
+    padding:8px 15px;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+.btn-danger{
+    background:#c0392b;
+}
+
+.cart{
+    background:white;
+    padding:20px;
+    margin:40px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+footer{
+    background:#333;
+    color:white;
+    text-align:center;
+    padding:25px;
+    margin-top:40px;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h2>Lo de Sofi</h2>
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#carrito">Carrito</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Encontra Todo Lo Que Buscas En Un Solo Lugar</h1>
+    <p>Precios competitivos y atención personalizada</p>
+</section>
+
+<section class="section" id="productos">
+    <h2>Nuestros Productos</h2>
+
+    <div class="grid">
+
+        <!-- PRODUCTO 1 -->
+        <div class="card">
+            <img src="imagenes/producto1.jpg" alt="Producto 1">
+            <h3>Producto 1</h3>
+            <p>$5000</p>
+            <button class="btn" onclick="agregar('Producto 1',5000)">Agregar al carrito</button>
+        </div>
+
+        <!-- PRODUCTO 2 -->
+        <div class="card">
+            <img src="imagenes/producto2.jpg" alt="Producto 2">
+            <h3>Producto 2</h3>
+            <p>$8000</p>
+            <button class="btn" onclick="agregar('Producto 2',8000)">Agregar al carrito</button>
+        </div>
+
+        <!-- PRODUCTO 3 -->
+        <div class="card">
+            <img src="imagenes/producto3.jpg" alt="Producto 3">
+            <h3>Producto 3</h3>
+            <p>$12000</p>
+            <button class="btn" onclick="agregar('Producto 3',12000)">Agregar al carrito</button>
+        </div>
+
+    </div>
+</section>
+
+<section class="cart" id="carrito">
+    <h2>Carrito</h2>
+    <ul id="lista"></ul>
+    <h3>Total: $<span id="total">0</span></h3>
+    <button class="btn" onclick="finalizar()">Finalizar compra por WhatsApp</button>
+</section>
+
+<footer>
+    © 2026 Lo de Sofi - España 1490 - Formosa Capital - WhatsApp 93704626684
+</footer>
+
+<script>
+let carrito = [];
+
+function agregar(nombre, precio){
+    let producto = carrito.find(p => p.nombre === nombre);
+
+    if(producto){
+        producto.cantidad++;
+    } else {
+        carrito.push({nombre, precio, cantidad:1});
+    }
+
+    actualizar();
+}
+
+function eliminar(nombre){
+    carrito = carrito.filter(p => p.nombre !== nombre);
+    actualizar();
+}
+
+function actualizar(){
+    let lista = document.getElementById("lista");
+    lista.innerHTML = "";
+    let total = 0;
+
+    carrito.forEach(item=>{
+        total += item.precio * item.cantidad;
+
+        let li = document.createElement("li");
+        li.innerHTML = `
+        ${item.nombre} x${item.cantidad} - $${item.precio * item.cantidad}
+        <button onclick="eliminar('${item.nombre}')" style="margin-left:10px;">❌</button>
+        `;
+        lista.appendChild(li);
+    });
+
+    document.getElementById("total").textContent = total;
+}
+
+function finalizar(){
+    if(carrito.length === 0){
+        alert("El carrito está vacío");
+        return;
+    }
+
+    let mensaje = "Hola! Quiero hacer este pedido:%0A";
+    let total = 0;
+
+    carrito.forEach(item=>{
+        mensaje += `- ${item.nombre} x${item.cantidad} - $${item.precio * item.cantidad}%0A`;
+        total += item.precio * item.cantidad;
+    });
+
+    mensaje += `%0ATotal: $${total}`;
+
+    let telefono = "5493704626684"; //
+
+    window.open("https://wa.me/" + telefono + "?text=" + mensaje, "_blank");
+}
+</script>
+
+</body>
+</html>
