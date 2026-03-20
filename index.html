@@ -459,7 +459,7 @@ container.innerHTML+=`
 <div class="card">
 <img src="${p.img}">
 <h3>${p.name}</h3>
-<p>$${p.price}</p>
+<p>$${p.price.toLocaleString("es-AR")}</p>
 <button class="add-btn" onclick="addToCart(${p.id})">Agregar</button>
 </div>`;
 });
@@ -519,7 +519,7 @@ ${item.qty}
 </div>`;
 });
 
-let envio=3000;
+let envio=5000;
 let descuento= total>40000 ? total*0.10 : 0;
 let totalFinal= total + envio - descuento;
 
@@ -559,7 +559,7 @@ function sendWhatsApp(){
 if(cart.length===0){alert("El carrito está vacío");return;}
 
 let total=0;
-let envio=3000;
+let envio=5000;
 let message="Hola quiero comprar:%0A%0A";
 
 cart.forEach(item=>{
