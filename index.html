@@ -510,12 +510,17 @@ totalCantidad+=item.qty;
 cartItems.innerHTML+=`
 <div class="cart-item">
 <strong>${item.name}</strong><br>
-$${item.price} c/u<br>
+$${item.price.toLocaleString("es-AR")} c/u<br>
+
 <button class="qty-btn" onclick="changeQty(${item.id},-1)">-</button>
 ${item.qty}
 <button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
+
 <button class="remove-btn" onclick="removeItem(${item.id})">x</button>
-<div style="float:right;"><strong>$${subtotal}</strong></div>
+
+<div style="float:right;">
+<strong>$${subtotal.toLocaleString("es-AR")}</strong>
+</div>
 </div>`;
 });
 
@@ -525,10 +530,14 @@ let totalFinal= total + envio - descuento;
 
 cartTotal.innerHTML=`
 <div class="total-box">
-Subtotal: $${total}<br>
-Envío: $${envio}<br>
-Descuento: -$${descuento}<br>
-<h3 style="color:#d4af37;">Total: $${totalFinal}</h3>
+Subtotal: $${total.toLocaleString("es-AR")}<br>
+Envío: $${envio.toLocaleString("es-AR")}<br>
+Descuento: -$${descuento.toLocaleString("es-AR")}<br>
+
+<h3 style="color:#d4af37;">
+Total: $${totalFinal.toLocaleString("es-AR")}
+</h3>
+
 </div>
 `;
 
