@@ -489,11 +489,10 @@ container.innerHTML+=`
 <div class="card">
 <img src="${p.img}">
 <h3>${p.name}</h3>
-
-<div class="price">$${p.price}</div>
-
-<button class="add-btn">Agregar</button>
-</div>
+<p>$${p.price}</p>
+<button class="add-btn" onclick="addToCart(${p.id})">Agregar</button>
+</div>`;
+});
 }
 
 function filterCategory(cat){
