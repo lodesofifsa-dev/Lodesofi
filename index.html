@@ -44,25 +44,28 @@ h1{
 
 /* CATEGORIAS */
 
-nav{
-  background:#f2f2f2;
-  padding:10px;
-  display:flex;
-  gap:10px;
-  overflow-x:auto;
-  border-bottom:2px solid #f2f2f2;
+nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+  padding: 10px;
 }
 
-nav button{
-  background:#0ea5e9;
-  color:white;
-  border:none;
-  padding:8px 12px;
-  font-weight:bold;
-  cursor:pointer;
-  border-radius:6px;
+nav button {
+  background: #2d8cff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
 }
 
+/* efecto al tocar */
+nav button:hover {
+  background: #1a6ed8;
+}
+    
 /* PRODUCTOS */
 
 .products{
