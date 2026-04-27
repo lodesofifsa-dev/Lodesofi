@@ -279,8 +279,32 @@ nav button:hover {
   margin-top:25px;
   color:white;
   font-size:14px;
+  
+}
+/* efecto zoom en imagen */
+.card img {
+  transition: transform 0.3s ease;
 }
 
+/* cuando pasás el dedo o mouse */
+.card:hover img {
+  transform: scale(1.08);
+}
+
+/* evita que se salga la imagen */
+.card {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* efecto extra en toda la tarjeta */
+.card {
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
   </style>
 </head>
 <body>
