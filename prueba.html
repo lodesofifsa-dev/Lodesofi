@@ -1,1 +1,142 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lo de Sofi</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+/* PORTADA */
+.hero {
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+              url('https://via.placeholder.com/800x500');
+  background-size: cover;
+  color: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero h1 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.hero p {
+  margin: 10px 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 10px;
+  background: #25D366;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* SECCIONES */
+.section {
+  padding: 20px;
+  text-align: center;
+}
+
+.card {
+  background: white;
+  margin: 15px auto;
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 300px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.price {
+  color: green;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* WHATSAPP */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  font-size: 20px;
+  text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<!-- PORTADA -->
+<div class="hero">
+  <h1>LO DE SOFI</h1>
+  <p>Artículos para el hogar • Sahumerios • Difusores</p>
+  <p>Mayorista y minorista en Formosa</p>
+
+  <a href="#ofertas" class="btn">VER OFERTAS</a>
+  <a href="https://wa.me/543704000000" class="btn">WHATSAPP</a>
+</div>
+
+<!-- OFERTAS -->
+<div class="section" id="ofertas">
+  <h2>🔥 OFERTAS</h2>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300">
+    <h3>Sahumerios hexagonales</h3>
+    <p>4 cajas surtidas</p>
+    <p class="price">$21.600</p>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300">
+    <h3>Difusores</h3>
+    <p class="price">desde $2.100</p>
+  </div>
+</div>
+
+<!-- NUEVOS -->
+<div class="section">
+  <h2>🆕 NUEVOS INGRESOS</h2>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300">
+    <h3>Canasto rattan 15L</h3>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/300">
+    <h3>Cesto vaivén</h3>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="section">
+  <p>📍 España 1490 - Formosa</p>
+  <p>📲 WhatsApp: 3704....</p>
+</div>
+
+<!-- BOTÓN WHATSAPP -->
+<a href="https://wa.me/543704000000" class="whatsapp">💬</a>
+
+</body>
+</html>
