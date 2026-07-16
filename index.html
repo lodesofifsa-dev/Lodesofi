@@ -1,407 +1,968 @@
 <!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lo de Sofi - Artículos Para el Hogar</title>
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<html class="light" lang="es"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Catálogo LodeSofi - Tanda 3 (182 Productos)</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "surface-tint": "#115cb9",
-                    "on-background": "#191c1d",
-                    "on-tertiary-fixed": "#221b00",
-                    "outline": "#727784",
-                    "surface-variant": "#e1e3e4",
-                    "primary-container": "#0056b3",
-                    "tertiary-container": "#c8a900",
-                    "inverse-primary": "#acc7ff",
-                    "surface-container": "#edeeef",
-                    "secondary-fixed": "#83fc8e",
-                    "on-secondary-fixed": "#002106",
-                    "surface-container-highest": "#e1e3e4",
-                    "surface": "#f8f9fa",
-                    "on-error-container": "#93000a",
-                    "on-secondary": "#ffffff",
-                    "surface-container-low": "#f3f4f5",
-                    "background": "#f8f9fa",
-                    "on-primary-fixed": "#001a40",
-                    "on-tertiary": "#ffffff",
-                    "on-surface": "#191c1d",
-                    "surface-container-lowest": "#ffffff",
-                    "on-tertiary-container": "#4b3e00",
-                    "surface-dim": "#d9dadb",
-                    "inverse-surface": "#2e3132",
-                    "inverse-on-surface": "#f0f1f2",
-                    "outline-variant": "#c2c6d4",
-                    "secondary-container": "#80f98b",
-                    "tertiary-fixed": "#ffe16d",
-                    "on-error": "#ffffff",
-                    "error-container": "#ffdad6",
-                    "surface-container-high": "#e7e8e9",
-                    "on-secondary-container": "#007327",
-                    "on-secondary-fixed-variant": "#00531a",
-                    "on-tertiary-fixed-variant": "#544600",
-                    "tertiary": "#705d00",
-                    "primary": "#003f87",
-                    "tertiary-fixed-dim": "#e9c400",
-                    "error": "#ba1a1a",
-                    "secondary-fixed-dim": "#66df75",
-                    "primary-fixed": "#d7e2ff",
-                    "secondary": "#006e25",
-                    "on-primary-fixed-variant": "#004491",
-                    "on-primary": "#ffffff",
-                    "surface-bright": "#f8f9fa",
-                    "on-surface-variant": "#424752",
-                    "primary-fixed-dim": "#acc7ff",
-                    "on-primary-container": "#bbd0ff"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.5rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "margin-desktop": "40px",
-                    "margin-mobile": "16px",
-                    "base": "8px",
-                    "gutter": "24px",
-                    "container-max": "1280px"
-            },
-            "fontFamily": {
-                    "label-md": ["Inter"],
-                    "headline-sm": ["Inter"],
-                    "body-md": ["Inter"],
-                    "label-sm": ["Inter"],
-                    "display-lg-mobile": ["Inter"],
-                    "body-lg": ["Inter"],
-                    "headline-md": ["Inter"],
-                    "display-lg": ["Inter"]
-            },
-            "fontSize": {
-                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
-                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
-                    "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
-            }
-          },
-        },
-      }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .product-card-shadow {
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .product-card-shadow:hover {
-            box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.08);
-            transform: translateY(-4px);
-        }
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #acc7ff;
-            border-radius: 10px;
-        }
-        .loading-shimmer {
-            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-        }
-        @keyframes shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-        .category-section:not(:last-child) {
-            margin-bottom: 4rem;
-        }
-    </style>
-</head>
-<body class="bg-background text-on-background font-body-md text-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
-<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin-desktop py-4 max-w-container-max mx-auto bg-surface shadow-sm transition-all duration-300" id="main-header">
-<div class="flex items-center gap-12">
-<h1 class="font-display-lg-mobile text-display-lg-mobile font-black text-primary">LodeSofi</h1>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-200" href="#">Limpieza Suelta</a>
-<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="#">Primeras Marcas</a>
-<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-200" href="#">Hogar</a>
-<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-200" href="#">Ofertas</a>
-<a class="text-on-surface-variant font-label-md text-label-md hover:text-primary transition-colors duration-200" href="#">Contacto</a>
-</nav>
-</div>
-<div class="flex items-center gap-6">
-<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
-<span class="material-symbols-outlined text-outline">search</span>
-<input class="bg-transparent border-none focus:ring-0 text-label-md placeholder:text-outline-variant w-48 lg:w-64" id="global-search" placeholder="Buscar productos..." type="text"/>
-</div>
-<div class="flex items-center gap-4">
-<button class="relative active:scale-95 transition-transform duration-150">
-<span class="material-symbols-outlined text-primary text-[28px]">shopping_cart</span>
-<span class="absolute -top-1 -right-1 bg-secondary text-on-secondary text-[10px] w-4 h-4 flex items-center justify-center rounded-full font-bold">2</span>
-</button>
-<button class="active:scale-95 transition-transform duration-150">
-<span class="material-symbols-outlined text-primary text-[28px]">account_circle</span>
-</button>
-</div>
-</div>
-</header>
-<main class="pt-32 pb-16 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-<div class="flex flex-col xl:flex-row gap-gutter">
-<!-- Sidebar Filters -->
-<aside class="w-full xl:w-64 flex-shrink-0">
-<div class="sticky top-28 space-y-8">
-<div>
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Categorías</h3>
-<div class="space-y-2" id="category-filters">
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="filter-checkbox w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" data-type="category" type="checkbox" value="Limpieza"/>
-<span class="text-label-md font-label-md text-on-surface-variant group-hover:text-primary">Limpieza</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="filter-checkbox w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" data-type="category" type="checkbox" value="Productos Sueltos"/>
-<span class="text-label-md font-label-md text-on-surface-variant group-hover:text-primary">Productos Sueltos</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="filter-checkbox w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" data-type="category" type="checkbox" value="Plasticos"/>
-<span class="text-label-md font-label-md text-on-surface-variant group-hover:text-primary">Plásticos</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="filter-checkbox w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" data-type="category" type="checkbox" value="Escobillones"/>
-<span class="text-label-md font-label-md text-on-surface-variant group-hover:text-primary">Escobillones</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="filter-checkbox w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" data-type="category" type="checkbox" value="Cepilleria"/>
-<span class="text-label-md font-label-md text-on-surface-variant group-hover:text-primary">Cepillería</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="filter-checkbox w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" data-type="category" type="checkbox" value="Insecticida"/>
-<span class="text-label-md font-label-md text-on-surface-variant group-hover:text-primary">Insecticida</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="filter-checkbox w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" data-type="category" type="checkbox" value="Sahumerios"/>
-<span class="text-label-md font-label-md text-on-surface-variant group-hover:text-primary">Sahumerios</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="filter-checkbox w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" data-type="category" type="checkbox" value="Promos Semanales"/>
-<span class="text-label-md font-label-md text-on-surface-variant group-hover:text-primary">Promos Semanales</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="filter-checkbox w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" data-type="category" type="checkbox" value="Pegamentos"/>
-<span class="text-label-md font-label-md text-on-surface-variant group-hover:text-primary">Pegamentos</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="filter-checkbox w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" data-type="category" type="checkbox" value="Automovil"/>
-<span class="text-label-md font-label-md text-on-surface-variant group-hover:text-primary">Automóvil</span>
-</label>
-</div>
-</div>
-<div class="pt-6 border-t border-outline-variant">
-<h3 class="font-headline-sm text-headline-sm text-on-surface mb-4">Rango de Precio</h3>
-<input class="w-full accent-primary" id="price-range" max="15000" min="0" step="500" type="range" value="15000"/>
-<div class="flex justify-between mt-2 text-label-sm font-label-sm text-outline">
-<span>$0</span>
-<span id="price-display">$15.000+</span>
-</div>
-</div>
-<button class="w-full py-3 bg-surface-container-high hover:bg-surface-dim text-on-surface rounded-lg font-label-md text-label-md transition-colors" id="clear-filters">
-                    Limpiar Filtros
-                </button>
-</div>
-</aside>
-<!-- Product Section -->
-<section class="flex-1">
-<div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
-<div>
-<h2 class="font-headline-md text-headline-md text-on-surface">Catálogo de Productos</h2>
-<p class="text-label-md text-outline" id="product-count">Cargando catálogo...</p>
-</div>
-<div class="flex items-center gap-2">
-<span class="text-label-md text-outline">Ordenar por:</span>
-<select class="bg-white border-outline-variant rounded-lg text-label-md focus:ring-primary focus:border-primary px-3 py-2" id="sort-order">
-<option value="relevance">Relevancia</option>
-<option value="price-asc">Precio: Menor a Mayor</option>
-<option value="price-desc">Precio: Mayor a Menor</option>
-</select>
-</div>
-</div>
-<!-- Category Containers -->
-<div class="space-y-12" id="catalog-container"></div>
-<div class="hidden flex-col items-center justify-center py-20 text-center" id="no-results">
-<span class="material-symbols-outlined text-outline-variant text-6xl mb-4">search_off</span>
-<h3 class="font-headline-sm text-on-surface mb-2">No se encontraron productos</h3>
-<p class="text-on-surface-variant">Intenta ajustar tus filtros o buscar otro término.</p>
-</div>
-</section>
-</div>
-</main>
-<footer class="w-full py-16 px-margin-desktop grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto bg-surface-container-highest mt-16">
-<div class="space-y-6">
-<h2 class="font-headline-sm text-headline-sm font-bold text-primary">LodeSofi</h2>
-<p class="text-on-surface-variant font-body-md text-body-md">Líderes en fabricación de productos de limpieza y artículos para el hogar con más de 20 años de experiencia.</p>
-<div class="flex gap-4">
-<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined">face_nod</span>
-</a>
-<a class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center hover:text-primary transition-colors" href="#">
-<span class="material-symbols-outlined">camera</span>
-</a>
-</div>
-</div>
-<div>
-<h4 class="font-label-md text-label-md text-on-surface font-bold mb-6">Explorar</h4>
-<ul class="space-y-4">
-<li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Nuestros Productos</a></li>
-<li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Venta Mayorista</a></li>
-<li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Ofertas Destacadas</a></li>
-<li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Nuevos Ingresos</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-md text-label-md text-on-surface font-bold mb-6">Soporte</h4>
-<ul class="space-y-4">
-<li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Preguntas Frecuentes</a></li>
-<li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Términos y Condiciones</a></li>
-<li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Política de Privacidad</a></li>
-<li><a class="text-on-surface-variant font-label-sm text-label-sm hover:text-primary transition-colors" href="#">Envíos</a></li>
-</ul>
-</div>
-<div>
-<h4 class="font-label-md text-label-md text-on-surface font-bold mb-6">Contacto</h4>
-<ul class="space-y-4">
-<li class="flex items-start gap-3">
-<span class="material-symbols-outlined text-primary">location_on</span>
-<span class="text-on-surface-variant font-label-sm text-label-sm">Av. General Paz 1234,<br/>Buenos Aires, Argentina</span>
-</li>
-<li class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary">phone</span>
-<span class="text-on-surface-variant font-label-sm text-label-sm">+54 11 4444-5555</span>
-</li>
-<li class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary">mail</span>
-<span class="text-on-surface-variant font-label-sm text-label-sm">ventas@lodesofi.com</span>
-</li>
-</ul>
-</div>
-<div class="col-span-1 md:col-span-4 pt-12 border-t border-outline-variant flex flex-col md:flex-row justify-between items-center gap-4">
-<p class="text-on-surface-variant font-label-sm text-label-sm">© 2024 LodeSofi. Fabricantes de Limpieza y Artículos del Hogar.</p>
-<div class="flex gap-6">
-<img alt="Visa" class="h-4 opacity-50 grayscale hover:grayscale-0 transition-all cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABzDC0I4HiT3f-cmtE3t1X1eiKxxWRBt1y0LErVXPTJOZYNl_SQ0-BCaNJnQBl0ChgC9QfgYz8Iv2Tyxv9pasgzyaw1_SRTZC6A37XAgYfpNO4pAw00tZSbdgNUjCkISWqZAWmaeCUHE3chOjvKb0RYFDhe6j8kUY3R3uhfL9B_vmphDlcHE2yfFTb0FZSR1WV4HkbNm3x45q_bFErmit0dmdrLD1nikTdE8EYfpR_A39QOvXdzieF"/>
-<img alt="Mastercard" class="h-4 opacity-50 grayscale hover:grayscale-0 transition-all cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4FUbqvRHxbcvtigOvnz5582pMK-P-PJoiKXefslI3TCWJWHSZkGWnisROfgLiRlWRn1PYEItg8g5B1wEvvGn0piiyPithTbBSom4Dg8ZA3nmEsMIcM0-09lwm7KL5zZEVDUojsbSTd48fMSyF6G0GuQTgVYw8IH84eXeGybKrwXduBbdoyeo-E-qUItSDNSVGMEGdMEGV1pKSMkcUDc8ppeso1BetvMCLvc_iFz6kum7RDrF-IQY5"/>
-<img alt="Mercado Pago" class="h-4 opacity-50 grayscale hover:grayscale-0 transition-all cursor-pointer" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPoBvh8mvqf7_6JTsc_7H06FlT8dQ76wLQM-Hrbl4yE_2b0Vzvc77vFqI49Wgx5gvaFsRCuPms425-0b91XeuQWaEkM-kL6aem2FSFn_B1V1VuM0Xnv20v2SuCYv7lwYD6DlUW_Enpe123hiA_Ya2fHepj_Sec0LquGDxSWu0HfBjm8V3No8-nXBkKeYIWNVNoKouhJH1ynJFszAg3V5H5k0duYXoGje2gQI2fNdwYGK25EK-opGwG"/>
-</div>
-</div>
-</footer>
-<script id="productos-data" type="application/json">
-{
-  "productos": [
-    {"id":1,"name":"Lavandina Ayudin Original 1LT","price":2200,"category":"Limpieza","img":"imagenes/lavandina-ayudin.jpeg"},
-    {"id":2,"name":"Lavandina X5 Original 1LT","price":2200,"category":"Limpieza","img":"imagenes/comun1.png"},
-    {"id":3,"name":"Desodorante para piso Poett 900ml","price":2500,"category":"Limpieza","img":"imagenes/poett1.jpg"},
-    {"id":4,"name":"Desodorante para piso Poett 900ml","price":2500,"category":"Limpieza","img":"imagenes/poett2.jpg"},
-    {"id":5,"name":"Desodorante para piso Poett 900ml","price":2500,"category":"Limpieza","img":"imagenes/poett.webp"},
-    {"id":6,"name":"Lavandina en Gel Ayudin 700ml","price":3500,"category":"Limpieza","img":"imagenes/engel.jpg"},
-    {"id":7,"name":"Cif Cremoso 750g","price":4600,"category":"Limpieza","img":"imagenes/cif750.jpg"},
-    {"id":8,"name":"Cif Cremoso 375g","price":2700,"category":"Limpieza","img":"imagenes/cif375.jpg"},
-    {"id":9,"name":"MR. Musculo Cremoso 450cm","price":4000,"category":"Limpieza","img":"imagenes/mr.jpeg"},
-    {"id":10,"name":"Detergente Cif 300ml","price":3000,"category":"Limpieza","img":"imagenes/cif250.jpg"},
-    {"id":11,"name":"Detergente Cif 300ml","price":3000,"category":"Limpieza","img":"imagenes/cif300.jpeg"},
-    {"id":12,"name":"Detergente Cif 500ml","price":4500,"category":"Limpieza","img":"imagenes/cif500.jpg"},
-    {"id":19,"name":"Detergente Cif Recarga Económica 400ml","price":3500,"category":"Limpieza","img":"imagenes/doypack.webp"},
-    {"id":13,"name":"Detergente Magistral 250ml","price":3000,"category":"Limpieza","img":"imagenes/magis1.jpg"},
-    {"id":14,"name":"Detergente Magistral 500ml","price":5000,"category":"Limpieza","img":"imagenes/magis2.jpg"},
-    {"id":15,"name":"Detergente Tipo Magistral","price":4000,"category":"Productos Sueltos","img":"imagenes/tipomagi.jpg"},
-    {"id":16,"name":"Tipo Cif Cremoso 250g","price":2000,"category":"Productos Sueltos","img":"imagenes/tipocif.jpg"},
-    {"id":17,"name":"Desengrasante Brillonet Cocina y Baño 1 Litro","price":4000,"category":"Productos Sueltos","img":"imagenes/brillonet.jpg"},
-    {"id":18,"name":"Desengrasante Industrial grasas difíciles 1 Litro","price":4000,"category":"Productos Sueltos","img":"imagenes/industrial.jpg"},
-    {"id":20,"name":"Lavandina en Gel 1 Litro","price":3500,"category":"Productos Sueltos","img":"imagenes/tipogel1.jpg"},
-    {"id":21,"name":"Lavandina en Gel 500ml","price":2700,"category":"Productos Sueltos","img":"imagenes/tipogel2.jpg"},
-    {"id":22,"name":"Lavandina Ropa Blanca 1 Litro","price":2500,"category":"Productos Sueltos","img":"imagenes/ropablanca.jpg"},
-    {"id":23,"name":"Lavandina Ropa Color 1 Litro","price":2500,"category":"Productos Sueltos","img":"imagenes/ropacolor.jpg"},
-    {"id":24,"name":"Quitamanchas 1 Litro","price":2500,"category":"Productos Sueltos","img":"imagenes/quitaman.jpg"},
-    {"id":25,"name":"Desmanchador Plus 1 Litro","price":3000,"category":"Productos Sueltos","img":"imagenes/desman.jpg"},
-    {"id":26,"name":"Vinagre de Limpieza 1 Litro","price":3000,"category":"Productos Sueltos","img":"imagenes/vinagre.jpg"},
-    {"id":27,"name":"Neutralizador de Olores 1 Litro","price":2500,"category":"Productos Sueltos","img":"imagenes/mataolor.jpg"},
-    {"id":30,"name":"Balde Cuadrado 10 Litros","price":6000,"category":"Plasticos","img":"imagenes/balde1.webp"},
-    {"id":50,"name":"Balde Color 10 Litros","price":4000,"category":"Plasticos","img":"imagenes/balde2.webp"},
-    {"id":51,"name":"Balde Transparente 10 Litros","price":4000,"category":"Plasticos","img":"imagenes/traslu.webp"},
-    {"id":52,"name":"Balde Manija Metalica 11 Litros aprox.","price":4000,"category":"Plasticos","img":"imagenes/manija.webp"},
-    {"id":53,"name":"Balde Manija Metálica 13 Litros aprox ","price":4000,"category":"Plasticos","img":"imagenes/manija2.webp"},
-    {"id":54,"name":"Balde 14 Litros aprox.","price":4500,"category":"Plasticos","img":"imagenes/14litros.webp"},
-    {"id":55,"name":"Balde 9 Litros aprox.","price":3500,"category":"Plasticos","img":"imagenes/9litros.webp"},
-    {"id":56,"name":"Balde con Escurridor para Mopa","price":7000,"category":"Plasticos","img":"imagenes/baldemopa.webp"},
-    {"id":45,"name":"Fuenton Ovalado 16 Litros","price":6000,"category":"Plasticos","img":"imagenes/oval.webp"},
-    {"id":46,"name":"Fuenton 16 Litros aprox.","price":4500,"category":"Plasticos","img":"imagenes/fuenton1.webp"},
-    {"id":47,"name":"Fuenton 38 Litros aprox.","price":8000,"category":"Plasticos","img":"imagenes/fuenton2.webp"},
-    {"id":48,"name":"Fuenton 34 Litros aprox.","price":7000,"category":"Plasticos","img":"imagenes/fuenton3.webp"},
-    {"id":49,"name":"Fuenton 12 Litros aprox.","price":3500,"category":"Plasticos","img":"imagenes/fuenton4.webp"},
-    {"id":0,"name":"Sahumerios Hexagonales","price":1000,"category":"Sahumerios","img":"imagenes/mantrahexa.jpg"},
-    {"id":28,"name":"Raid Mata en 10 Segundos moscas y mosquitos","price":7000,"category":"Insecticida","img":"imagenes/raid10.webp"},
-    {"id":29,"name":"Raid Mata Casa y Jardin","price":7000,"category":"Insecticida","img":"imagenes/raidcyj.webp"},
-    {"id":31,"name":"Raid Larvas y Polillas","price":9500,"category":"Insecticida","img":"imagenes/raidlyp.jpg"},
-    {"id":32,"name":"Raid Exterminada Cucarachas mata por 6 semanas","price":10000,"category":"Insecticida","img":"imagenes/raidcuca.webp"},
-    {"id":33,"name":"Efecto naranja Casa y Jardin","price":4500,"category":"Insecticida","img":"imagenes/efectonj.jpg"},
-    {"id":34,"name":"Efecto Azul Moscas y Mosquitos","price":4500,"category":"Insecticida","img":"imagenes/efectoazul.jpg"},
-    {"id":35,"name":"Efecto Rojo Plus Moscas y Mosquitos sin olor","price":4500,"category":"Insecticida","img":"imagenes/efectorojo.png"},
-    {"id":36,"name":"Fuyi moscas y Mosquitos","price":5500,"category":"Insecticida","img":"imagenes/fuyi.jpg"},
-    {"id":37,"name":"Baygon Cucarachas y Arañas","price":5500,"category":"Insecticida","img":"imagenes/baygon.jpeg"},
-    {"id":38,"name":"Selton Rojo Moscas y Mosquitos","price":5500,"category":"Insecticida","img":"imagenes/seltonrojo.jpg"},
-    {"id":39,"name":"Selton Azul Moscas y Mosquitos Sin Olor a Solvente","price":7000,"category":"Insecticida","img":"imagenes/seltonazul.png"},
-    {"id":41,"name":"Promo Semanal Baño","price":11000,"category":"Promos Semanales","img":"imagenes/promo1.jpg"},
-    {"id":42,"name":"Promo Semanal Cocina","price":11000,"category":"Promos Semanales","img":"imagenes/promo4.jpg"},
-    {"id":43,"name":"Promo Semanal Hogar","price":11000,"category":"Promos Semanales","img":"imagenes/promo2.jpg"},
-    {"id":44,"name":"Promo Semanal Varios","price":11000,"category":"Promos Semanales","img":"imagenes/promo3.jpg"},
-    {"id":57,"name":"Promo Sedil Detergente + Deso.Piso + Agua Lavandina","price":3500,"category":"Promos Semanales","img":"imagenes/sedil.webp"},
-    {"id":58,"name":"Pegamento Suprabond 100ml","price":6000,"category":"Pegamentos","img":"imagenes/bond.webp"},
-    {"id":59,"name":"Pegamento Ecole 3g","price":3500,"category":"Pegamentos","img":"imagenes/ecole3g.png"},
-    {"id":60,"name":"Pegamento Ecole 9g","price":6000,"category":"Pegamentos","img":"imagenes/ecole9g.jpg"},
-    {"id":61,"name":"Pegamento Pulpito 50g","price":8000,"category":"Pegamentos","img":"imagenes/pulpito.webp"},
-    {"id":62,"name":"Pegamento Poxilina 70g","price":6000,"category":"Pegamentos","img":"imagenes/poxilina.jpg"},
-    {"id":63,"name":"Pegamento SuperGlue 3g","price":1000,"category":"Pegamentos","img":"imagenes/glue.jpg"},
-    {"id":64,"name":"Pegamento Poxipol 16g","price":5500,"category":"Pegamentos","img":"imagenes/poxipol.jpeg"},
-    {"id":65,"name":"Pegamento Gotita Gel 3g","price":3000,"category":"Pegamentos","img":"imagenes/gel.jpeg"},
-    {"id":66,"name":"Pegamento Gotita 2ml","price":3000,"category":"Pegamentos","img":"imagenes/gotita.jpg"},
-    {"id":67,"name":"Pegamento Unipox 25ml","price":6000,"category":"Pegamentos","img":"imagenes/unipox.jpg"},
-    {"id":68,"name":"Pegamento Poxiran 23ml","price":5000,"category":"Pegamentos","img":"imagenes/poxiran.webp"},
-    {"id":69,"name":"Aromatizante Caritas Sport","price":4500,"category":"Automovil","img":"imagenes/sport.png"},
-    {"id":70,"name":"Aromatizante Caritas Aqua","price":4500,"category":"Automovil","img":"imagenes/aqua.png"},
-    {"id":71,"name":"Aromatizante Caritas Lima Limon","price":4500,"category":"Automovil","img":"imagenes/lima.png"},
-    {"id":72,"name":"Aromatizante Caritas Caribe","price":4500,"category":"Automovil","img":"imagenes/caribe.webp"},
-    {"id":73,"name":"Aromatizante Caritas Manzana","price":4500,"category":"Automovil","img":"imagenes/manza.png"},
-    {"id":74,"name":"Aromatizante Caritas Multifruta","price":4500,"category":"Automovil","img":"imagenes/multi.png"},
-    {"id":75,"name":"Aromatizante Caritas Naranja","price":4500,"category":"Automovil","img":"imagenes/naranja.png"},
-    {"id":76,"name":"Aromatizante Caritas Frutos Rojos","price":4500,"category":"Automovil","img":"imagenes/frutos.png"},
-    {"id":77,"name":"Aromatizante Ruta 66 Naranja","price":4500,"category":"Automovil","img":"imagenes/naranja.webp"},
-    {"id":78,"name":"Aromatizante Ruta 66 Uva","price":4500,"category":"Automovil","img":"imagenes/uva.png"},
-    {"id":79,"name":"Aromatizante Ruta 66 Frutos Rojos","price":4500,"category":"Automovil","img":"imagenes/rojos.jpeg"},
-    {"id":80,"name":"Aromatizante Ruta 66 Polo","price":4500,"category":"Automovil","img":"imagenes/polo.jpg"},
-    {"id":81,"name":"Aromatizante Ruta 66 Citrico","price":4500,"category":"Automovil","img":"imagenes/critico.webp"},
-    {"id":82,"name":"Aromatizante Ruta 66 Tropical","price":4500,"category":"Automovil","img":"imagenes/tropi.jpeg"},
-    {"id":83,"name":"Aromatizante Ruta 66 Tuti Fruti","price":4500,"category":"Automovil","img":"imagenes/tuti.jpeg"},
-    {"id":84,"name":"Aromatizante Ruta 66 Marino","price":4500,"category":"Automovil","img":"imagenes/marino.webp"},
-    {"id":85,"name":"Aromatizante Sensaciones Lavanda","price":5000,"category":"Automovil","img":"imagenes/lavanda.png"},
-    {"id":86,"name":"Aromatizante Sensaciones Aqua Rose","price":5000,"category":"Automovil","img":"imagenes/aquarose.jpg"},
-    {"id":87,"name":"Aromatizante Sensaciones Citrico","price":5000,"category":"Automovil","img":"imagenes/citricos.jpg"},
-    {"id":88,"name":"Aromatizante Sensaciones Orange","price":5000,"category":"Automovil","img":"imagenes/orange.jpg"},
-    {"id":89,"name":"Aromatizante Sensaciones Bosque de Pinos","price":5000,"category":"Automovil","img":"imagenes/bosque.jpg"},
-    {"id":90,"name":"Aromatizante Sensaciones Vainilla","price":5000,"category":"Automovil","img":"imagenes/vainilla.jpg"},
-    {"id":91,"name":"Aromatizante Sensaciones Floral","price":5000,"category":"Automovil","img":"imagenes/flora.jpg"},
-    {"id":92,"name":"Aromatizante Sensaciones Citronela","price":5000,"category":"Automovil","img":"imagenes/citronella.png"}
-  ]
+  <style>
+
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#f5f5f5;
+  color:#222;
 }
+
+/* HEADER */
+
+header{
+  background:#25D366;
+  padding:15px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:10px;
+}
+
+h1{
+  color:#ffffff;
+  margin:0;
+  text-align:center;
+  font-size:32px;
+}
+
+#search{
+  padding:10px;
+  width:70%;
+  border:none;
+  border-radius:6px;
+}
+
+/* CATEGORIAS */
+
+nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 8px;
+  padding: 10px;
+}
+
+nav button {
+  background: #2d8cff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* efecto al tocar */
+nav button:hover {
+  background: #1a6ed8;
+}
+    
+/* PRODUCTOS */
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:15px;
+  padding:15px;
+}
+
+.card{
+  background:#0ea5e9;
+  border-radius:10px;
+  padding:10px;
+  text-align:center;
+  border:2px solid #000;
+  box-shadow:0 6px 15px rgba(0,0,0,0.15);
+}
+.card h3{
+  font-size:15px;
+  color:#fff;
+}
+
+.price{
+  font-size:24px;
+  font-weight:bold;
+  color:#ffffff;
+  text-shadow:0 2px 4px rgba(0,0,0,0.4);
+  margin:8px 0;
+}
+.card img{
+  width:100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius:6px;
+}
+
+.add-btn{
+  background:#ffffff;
+  color:black;
+  border:none;
+  padding:8px;
+  margin-top:8px;
+  font-weight:bold;
+  cursor:pointer;
+  border-radius:6px;
+}
+
+/* CARRITO */
+
+.overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  z-index:999;
+}
+
+.cart{
+  position:fixed;
+  right:-400px;
+  top:0;
+  width:360px;
+  height:100%;
+  background:#fff;
+  border-left:3px solid #0ea5e9;
+  padding:20px;
+  overflow-y:auto;
+  transition:0.3s;
+  z-index:1000;
+}
+
+.cart.open{
+  right:0;
+}
+
+.cart-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.cart h2{
+  color:#0ea5e9;
+  margin:0;
+}
+
+.close-cart{
+  font-size:22px;
+  cursor:pointer;
+}
+
+.cart-item{
+  margin:15px 0;
+  border-bottom:1px solid #ddd;
+  padding-bottom:10px;
+}
+
+.qty-btn{
+  background:#0ea5e9;
+  color:white;
+  border:none;
+  padding:4px 8px;
+  margin:0 3px;
+  cursor:pointer;
+}
+
+.remove-btn{
+  background:red;
+  border:none;
+  padding:4px 6px;
+  color:#fff;
+  cursor:pointer;
+}
+
+.checkout{
+  background:#25D366;
+  border:none;
+  color:white;
+  padding:12px;
+  width:100%;
+  font-weight:bold;
+  margin-top:20px;
+  font-size:16px;
+  cursor:pointer;
+  border-radius:6px;
+}
+
+.total-box{
+  margin-top:15px;
+  padding-top:10px;
+  border-top:2px solid #0ea5e9;
+}
+
+/* BOTON CARRITO */
+
+.floating-cart{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  width:65px;
+  height:65px;
+  background:#0ea5e9;
+  color:#fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:26px;
+  cursor:pointer;
+  box-shadow:0 6px 15px rgba(0,0,0,0.25);
+  z-index:2000;
+}
+
+.cart-badge{
+  position:absolute;
+  top:-5px;
+  right:-5px;
+  background:red;
+  color:#fff;
+  font-size:14px;
+  font-weight:bold;
+  width:22px;
+  height:22px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* REDES */
+
+.footer{
+  background:#25D366;
+  padding:40px 20px;
+  margin-top:40px;
+  text-align:center;
+}
+
+.footer-redes{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  flex-wrap:wrap;
+}
+
+.social-btn{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 20px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:18px;
+  color:white;
+  transition:0.3s;
+}
+
+.social-btn:hover{
+  transform:scale(1.1);
+}
+
+.whatsapp{ background:#1ebe5d; }
+.instagram{ background:#E1306C; }
+.facebook{ background:#1877F2; }
+
+.copyright{
+  margin-top:25px;
+  color:white;
+  font-size:14px;
+  
+}
+/* efecto zoom en imagen */
+.card img {
+  transition: transform 0.3s ease;
+}
+
+/* cuando pasás el dedo o mouse */
+.card:hover img {
+  transform: scale(1.08);
+}
+
+/* evita que se salga la imagen */
+.card {
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+/* efecto extra en toda la tarjeta */
+.card {
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+    
+/* mejora calidad de imágenes */
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  image-rendering: auto;
+}
+
+/* bajar un poco el zoom para que no se vea borroso */
+.card:hover img {
+  transform: scale(1.04);
+}    
+  </style>
+</head>
+<body>
+
+<header>
+<h1>LO DE SOFI - EN FORMOSA PRECIO Y CALIDAD</h1>
+<input type="text" id="search" placeholder="Buscar...">
+</header>
+
+<nav>
+<button onclick="filterCategory('Promos Semanales')">Promos Semanales</button>
+<button onclick="filterCategory('Limpieza')">Limpieza</button>
+<button onclick="filterCategory('Insecticida')">Insecticida</button>
+<button onclick="filterCategory('Plasticos')">Plasticos</button>
+<button onclick="filterCategory('Cuidado de Pisos y Muebles')">Cuidado de Pisos y Muebles</button>
+<button onclick="filterCategory('Textiles')">Textiles</button>
+<button onclick="filterCategory('Papeles')">Papeles</button>
+<button onclick="filterCategory('Pegamentos')">Pegamentos</button>
+<button onclick="filterCategory('Bolsas')">Bolsas</button>
+<button onclick="filterCategory('Aerosoles Ambiente')">Aerosoles Ambiente</button>
+<button onclick="filterCategory('Baño')">Baño</button>
+<button onclick="filterCategory('Automovil')">Automovil</button>
+<button onclick="filterCategory('Sahumerios')">Sahumerios</button>
+<button onclick="filterCategory('Productos Sueltos')">Productos Sueltos</button>
+<button onclick="filterCategory('Mayorista')">Mayorista</button>
+<button onclick="filterCategory('Escobillones')">Escobillones</button>
+<button onclick="filterCategory('Secadores')">Secadores</button>
+<button onclick="filterCategory('Saphirus Aerosol')">Saphirus Aerosol</button>
+<button onclick="filterCategory('Saphirus Textil')">Saphirus Textil</button>
+<button onclick="filterCategory('Saphirus Varilla')">Saphirus Varilla</button>
+<button onclick="filterCategory('Cuidado Personal')">Cuidado Personal</button>
+<button onclick="filterCategory('Control de Plagas')">Control de Plagas</button>
+</nav>
+
+<div class="products" id="product-list"></div>
+
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+<div class="cart" id="cart">
+  <div class="cart-header">
+    <h2>Carrito</h2>
+    <span class="close-cart" onclick="toggleCart()">✖</span>
+  </div>
+  <div id="cart-items"></div>
+  <div id="cart-total"></div>
+  <button class="checkout" onclick="sendWhatsApp()">Finalizar por WhatsApp</button>
+</div>
+
+<div class="floating-cart" onclick="toggleCart()">
+  🛒
+  <span id="cart-count" class="cart-badge">0</span>
+</div>
+
+<script>
+let products=[
+{id:1,name:"Lavandina Ayudin Original 1LT",price:2200,category:"Limpieza",img:"imagenes/lavandina-ayudin.jpeg"},
+{id:2,name:"Lavandina X5 Original 1LT",price:2200,category:"Limpieza",img:"imagenes/comun1.png"},
+{id:3,name:"Desodorante para piso Poett 900ml",price:2500,category:"Limpieza",img:"imagenes/poett1.jpg"},
+{id:4,name:"Desodorante para piso Poett 900ml",price:2500,category:"Limpieza",img:"imagenes/poett2.jpg"},
+{id:5,name:"Desodorante para piso Poett 900ml",price:2500,category:"Limpieza",img:"imagenes/poett.webp"},
+{id:6,name:"Lavandina en Gel Ayudin 700ml",price:3500,category:"Limpieza",img:"imagenes/engel.jpg"},
+{id:7,name:"Cif Cremoso 750g",price:4600,category:"Limpieza",img:"imagenes/cif750.jpg"},
+{id:8,name:"Cif Cremoso 375g",price:2700,category:"Limpieza",img:"imagenes/cif375.jpg"},
+{id:9,name:"MR. Musculo Cremoso 450cm",price:4000,category:"Limpieza",img:"imagenes/mr.jpeg"},
+{id:10,name:"Detergente Cif 300ml",price:3000,category:"Limpieza",img:"imagenes/cif250.jpg"},
+{id:11,name:"Detergente Cif 300ml",price:3000,category:"Limpieza",img:"imagenes/cif300.jpeg"},
+{id:12,name:"Detergente Cif 500ml",price:4500,category:"Limpieza",img:"imagenes/cif500.jpg"},
+{id:19,name:"Detergente Cif Recarga Económica 400ml",price:3500,category:"Limpieza",img:"imagenes/doypack.webp"},
+{id:13,name:"Detergente Magistral 250ml",price:3000,category:"Limpieza",img:"imagenes/magis1.jpg"},
+{id:14,name:"Detergente Magistral 500ml",price:5000,category:"Limpieza",img:"imagenes/magis2.jpg"},
+{id:15,name:"Detergente Tipo Magistral",price:4000,category:"Productos Sueltos",img:"imagenes/tipomagi.jpg"},
+{id:16,name:"Tipo Cif Cremoso 250g",price:2000,category:"Productos Sueltos",img:"imagenes/tipocif.jpg"},
+{id:17,name:"Desengrasante Brillonet Cocina y Baño 1 Litro",price:4000,category:"Productos Sueltos",img:"imagenes/brillonet.jpg"},
+{id:18,name:"Desengrasante Industrial grasas difíciles 1 Litro",price:4000,category:"Productos Sueltos",img:"imagenes/industrial.jpg"},
+{id:20,name:"Lavandina en Gel 1 Litro",price:3500,category:"Productos Sueltos",img:"imagenes/tipogel1.jpg"},
+{id:21,name:"Lavandina en Gel 500ml",price:2700,category:"Productos Sueltos",img:"imagenes/tipogel2.jpg"},
+{id:22,name:"Lavandina Ropa Blanca 1 Litro",price:2500,category:"Productos Sueltos",img:"imagenes/ropablanca.jpg"},
+{id:23,name:"Lavandina Ropa Color 1 Litro",price:2500,category:"Productos Sueltos",img:"imagenes/ropacolor.jpg"},
+{id:24,name:"Quitamanchas 1 Litro",price:2500,category:"Productos Sueltos",img:"imagenes/quitaman.jpg"},
+{id:25,name:"Desmanchador Plus 1 Litro",price:3000,category:"Productos Sueltos",img:"imagenes/desman.jpg"},
+{id:26,name:"Vinagre de Limpieza 1 Litro",price:3000,category:"Productos Sueltos",img:"imagenes/vinagre.jpg"},
+{id:27,name:"Neutralizador de Olores 1 Litro",price:2500,category:"Productos Sueltos",img:"imagenes/mataolor.jpg"},
+{id:30,name:"Balde Cuadrado 10 Litros",price:6000,category:"Plasticos",img:"imagenes/balde1.webp"},
+{id:50,name:"Balde Color 10 Litros",price:4000,category:"Plasticos",img:"imagenes/balde2.webp"},
+{id:51,name:"Balde Transparente 10 Litros",price:4000,category:"Plasticos",img:"imagenes/traslu.webp"},
+{id:52,name:"Balde Manija Metalica 11 Litros aprox.",price:4000,category:"Plasticos",img:"imagenes/manija.webp"},
+{id:53,name:"Balde Manija Metálica 13 Litros aprox ",price:4000,category:"Plasticos",img:"imagenes/manija2.webp"},
+{id:54,name:"Balde 14 Litros aprox.",price:4500,category:"Plasticos",img:"imagenes/14litros.webp"},
+{id:55,name:"Balde 9 Litros aprox.",price:3500,category:"Plasticos",img:"imagenes/9litros.webp"},
+{id:56,name:"Balde con Escurridor para Mopa",price:7000,category:"Plasticos",img:"imagenes/baldemopa.webp"}, 
+{id:0,name:"Sahumerios Hexagonales",price:1000,category:"Sahumerios",img:"imagenes/mantrahexa.jpg"},
+{id:28,name:"Raid Mata en 10 Segundos moscas y mosquitos",price:7000,category:"Insecticida",img:"imagenes/raid10.webp"},
+{id:29,name:"Raid Mata Casa y Jardin",price:7000,category:"Insecticida",img:"imagenes/raidcyj.webp"},
+{id:31,name:"Raid Larvas y Polillas",price:9500,category:"Insecticida",img:"imagenes/raidlyp.jpg"},
+{id:32,name:"Raid Exterminada Cucarachas mata por 6 semanas",price:10000,category:"Insecticida",img:"imagenes/raidcuca.webp"},
+{id:33,name:"Efecto naranja Casa y Jardin",price:4500,category:"Insecticida",img:"imagenes/efectonj.jpg"},
+{id:34,name:"Efecto Azul Moscas y Mosquitos",price:4500,category:"Insecticida",img:"imagenes/efectoazul.jpg"},
+{id:35,name:"Efecto Rojo Plus Moscas y Mosquitos sin olor",price:4500,category:"Insecticida",img:"imagenes/efectorojo.png"},
+{id:36,name:"Fuyi moscas y Mosquitos",price:5500,category:"Insecticida",img:"imagenes/fuyi.jpg"},
+{id:37,name:"Baygon Cucarachas y Arañas",price:5500,category:"Insecticida",img:"imagenes/baygon.jpeg"},
+{id:38,name:"Selton Rojo Moscas y Mosquitos",price:5500,category:"Insecticida",img:"imagenes/seltonrojo.jpg"},
+{id:39,name:"Selton Azul Moscas y Mosquitos Sin Olor a Solvente",price:7000,category:"Insecticida",img:"imagenes/seltonazul.png"},
+{id:41,name:"Promo Semanal Baño",price:11000,category:"Promos Semanales",img:"imagenes/promo1.jpg"},
+{id:42,name:"Promo Semanal Cocina",price:11000,category:"Promos Semanales",img:"imagenes/promo4.jpg"},
+{id:43,name:"Promo Semanal Hogar",price:11000,category:"Promos Semanales",img:"imagenes/promo2.jpg"},
+{id:44,name:"Promo Semanal Varios",price:11000,category:"Promos Semanales",img:"imagenes/promo3.jpg"},
+{id:45,name:"Fuenton Ovalado 16 Litros",price:6000,category:"Plasticos",img:"imagenes/oval.webp"},
+{id:46,name:"Fuenton 16 Litros aprox.",price:4500,category:"Plasticos",img:"imagenes/fuenton1.webp"},
+{id:47,name:"Fuenton 38 Litros aprox.",price:8000,category:"Plasticos",img:"imagenes/fuenton2.webp"},
+{id:48,name:"Fuenton 34 Litros aprox.",price:7000,category:"Plasticos",img:"imagenes/fuenton3.webp"},
+{id:49,name:"Fuenton 12 Litros aprox.",price:3500,category:"Plasticos",img:"imagenes/fuenton4.webp"},
+{id:57,name:"Promo Sedilé Detergente + Deso.Piso + Agua Lavandina",price:3500,category:"Promos Semanales",img:"imagenes/sedile.jpg"},
+{id:58,name:"Pegamento Suprabond 100ml",price:6000,category:"Pegamentos",img:"imagenes/bond.webp"},
+{id:59,name:"Pegamento Ecole 3g",price:3500,category:"Pegamentos",img:"imagenes/ecole3g.png"},
+{id:60,name:"Pegamento Ecole 9g",price:6000,category:"Pegamentos",img:"imagenes/ecole9g.jpg"},
+{id:61,name:"Pegamento Pulpito 50g",price:8000,category:"Pegamentos",img:"imagenes/pulpito.webp"},
+{id:62,name:"Pegamento Poxilina 70g",price:6000,category:"Pegamentos",img:"imagenes/poxilina.jpg"},
+{id:63,name:"Pegamento SuperGlue 3g",price:1000,category:"Pegamentos",img:"imagenes/glue.jpg"},
+{id:64,name:"Pegamento Poxipol 16g",price:5500,category:"Pegamentos",img:"imagenes/poxipol.jpeg"},
+{id:65,name:"Pegamento Gotita Gel 3g",price:3000,category:"Pegamentos",img:"imagenes/gel.jpeg"},
+{id:66,name:"Pegamento Gotita 2ml",price:3000,category:"Pegamentos",img:"imagenes/gotita.jpg"},
+{id:67,name:"Pegamento Unipox 25ml",price:6000,category:"Pegamentos",img:"imagenes/unipox.jpg"},
+{id:68,name:"Pegamento Poxiran 23ml",price:5000,category:"Pegamentos",img:"imagenes/poxiran.webp"},
+{id:69,name:"Aromatizante Caritas Sport",price:4500,category:"Automovil",img:"imagenes/sport.png"},
+{id:70,name:"Aromatizante Caritas Aqua",price:4500,category:"Automovil",img:"imagenes/aqua.png"},
+{id:71,name:"Aromatizante Caritas Lima Limon",price:4500,category:"Automovil",img:"imagenes/lima.png"},
+{id:72,name:"Aromatizante Caritas Caribe",price:4500,category:"Automovil",img:"imagenes/caribe.webp"},
+{id:73,name:"Aromatizante Caritas Manzana",price:4500,category:"Automovil",img:"imagenes/manza.png"},
+{id:74,name:"Aromatizante Caritas Multifruta",price:4500,category:"Automovil",img:"imagenes/multi.png"},
+{id:75,name:"Aromatizante Caritas Naranja",price:4500,category:"Automovil",img:"imagenes/naranja.png"},
+{id:76,name:"Aromatizante Caritas Frutos Rojos",price:4500,category:"Automovil",img:"imagenes/frutos.png"},
+{id:77,name:"Aromatizante Ruta 66 Naranja",price:4500,category:"Automovil",img:"imagenes/naranja.webp"},
+{id:78,name:"Aromatizante Ruta 66 Uva",price:4500,category:"Automovil",img:"imagenes/uva.png"},
+{id:79,name:"Aromatizante Ruta 66 Frutos Rojos",price:4500,category:"Automovil",img:"imagenes/rojos.jpeg"},
+{id:80,name:"Aromatizante Ruta 66 Polo",price:4500,category:"Automovil",img:"imagenes/polo.jpg"},
+{id:81,name:"Aromatizante Ruta 66 Citrico",price:4500,category:"Automovil",img:"imagenes/critico.webp"},
+{id:82,name:"Aromatizante Ruta 66 Tropical",price:4500,category:"Automovil",img:"imagenes/tropi.jpeg"},
+{id:83,name:"Aromatizante Ruta 66 Tuti Fruti",price:4500,category:"Automovil",img:"imagenes/tuti.jpeg"},
+{id:84,name:"Aromatizante Ruta 66 Marino",price:4500,category:"Automovil",img:"imagenes/marino.webp"},
+{id:85,name:"Aromatizante Sensaciones Lavanda",price:5000,category:"Automovil",img:"imagenes/lavanda.png"},
+{id:86,name:"Aromatizante Sensaciones Aqua Rose",price:5000,category:"Automovil",img:"imagenes/aquarose.jpg"},
+{id:87,name:"Aromatizante Sensaciones Citrico",price:5000,category:"Automovil",img:"imagenes/citricos.jpg"},
+{id:88,name:"Aromatizante Sensaciones Orange",price:5000,category:"Automovil",img:"imagenes/orange.jpg"},
+{id:89,name:"Aromatizante Sensaciones Bosque de Pinos",price:5000,category:"Automovil",img:"imagenes/bosque.jpg"},
+{id:90,name:"Aromatizante Sensaciones Vainilla",price:5000,category:"Automovil",img:"imagenes/vainilla.jpg"},
+{id:91,name:"Aromatizante Sensaciones Floral",price:5000,category:"Automovil",img:"imagenes/flora.jpg"},
+{id:92,name:"Aromatizante Sensaciones Citronela",price:5000,category:"Automovil",img:"imagenes/citronella.png"},
+{id:93,name:"Aromatizante Sensaciones Brisa Marina",price:5000,category:"Automovil",img:"imagenes/brisa.jpg"},
+{id:94,name:"Aromatizante Sensaciones Manzana Canela",price:5000,category:"Automovil",img:"imagenes/mancanela.png"},
+{id:95,name:"Glade Mini Gel Auto Aqua",price:6000,category:"Automovil",img:"imagenes/gladeautoazul.jpeg"},
+{id:96,name:"Glade Mini Gel Auto Frutos Rojos",price:6000,category:"Automovil",img:"imagenes/gladeautorojo.jpeg"},
+{id:97,name:"Aromatizante K78 Lavanda",price:4500,category:"Automovil",img:"imagenes/k78lavanda.png"},
+{id:98,name:"Aromatizante K78 New Car",price:4500,category:"Automovil",img:"imagenes/k78car.jpg"},
+{id:99,name:"Aromatizante K78 Pino",price:4500,category:"Automovil",img:"imagenes/k78pino.png"},
+{id:100,name:"Aromatizante K78 Lemon",price:4500,category:"Automovil",img:"imagenes/k78lemon.jpg"},  
+{id:101,name:"Aromatizante K78 Vainilla",price:4500,category:"Automovil",img:"imagenes/k78vainilla.jpg"},
+{id:102,name:"Aromatizante K78 Aqcua",price:4500,category:"Automovil",img:"imagenes/k78acqua.jpeg"},
+{id:103,name:"K78 Esponja Microfibra Dual",price:6500,category:"Automovil",img:"imagenes/k78esponja.webp"},
+{id:104,name:"K78 Paño Gamuza Chamoi",price:6000,category:"Automovil",img:"imagenes/k78chamoi.webp"},
+{id:105,name:"Aromanza Difusor de Auto Rosa Búlgara",price:4500,category:"Automovil",img:"imagenes/rosabul.jpg"},
+{id:106,name:"Aromanza Difusor de Auto Dulce Vainilla",price:4500,category:"Automovil",img:"imagenes/dulce.jpg"},
+{id:107,name:"Aromanza Difusor de Auto Citric Lemon",price:4500,category:"Automovil",img:"imagenes/cl.jpg"},
+{id:108,name:"Aromanza Difusor de Auto Dulce Uva",price:4500,category:"Automovil",img:"imagenes/dulceuva.jpg"},
+{id:109,name:"Aromanza Difusor de Auto Rosa Citronella",price:4500,category:"Automovil",img:"imagenes/citroll.jpg"},
+{id:110,name:"Aromanza Difusor de Auto Hawaiian",price:4500,category:"Automovil",img:"imagenes/hawa.jpg"},
+{id:111,name:"Aromanza Difusor de Auto Coconut",price:4500,category:"Automovil",img:"imagenes/coconut.jpg"},
+{id:112,name:"Aromanza Difusor de Auto Sport",price:4500,category:"Automovil",img:"imagenes/as.jpg"},
+{id:113,name:"Aromanza Difusor de Auto Naranja Pimienta",price:4500,category:"Automovil",img:"imagenes/naranpi.jpg"},
+{id:114,name:"Glade Aerosol Campos de Lavanda",price:4500,category:"Aerosoles Ambiente",img:"imagenes/gladelav.png"},
+{id:115,name:"Glade Aerosol Limon Refrescante",price:4500,category:"Aerosoles Ambiente",img:"imagenes/gladelim.png"},
+{id:116,name:"Glade Aerosol Naranjo y Orquideas",price:4500,category:"Aerosoles Ambiente",img:"imagenes/gladenar.png"},
+{id:117,name:"Glade Aerosol 216g Placer Floral y Frutos Rojos",price:4500,category:"Aerosoles Ambiente",img:"imagenes/gladeplacer.png"},
+{id:118,name:"Glade Aerosol Paraiso Azul",price:4500,category:"Aerosoles Ambiente",img:"imagenes/gladeazul.png"},
+{id:119,name:"Glade Aerosol Mañana de Campo",price:4500,category:"Aerosoles Ambiente",img:"imagenes/gladecampo.png"},
+{id:120,name:"Glade Aerosol Flores Tropicales",price:4500,category:"Aerosoles Ambiente",img:"imagenes/gladetropi.png"},
+{id:121,name:"Clio Aerosol Aire Libre",price:4500,category:"Aerosoles Ambiente",img:"imagenes/clioverde.png"}
+{id:122,name:"Clio Aerosol Campos de Lavanda",price:4500,category:"Aerosoles Ambiente",img:"imagenes/cliolila.png"},
+{id:123,name:"Clio Aerosol Frescura Marina",price:4500,category:"Aerosoles Ambiente",img:"imagenes/clioazul.png"},
+{id:124,name:"Clio Aerosol Capullos de Algodon",price:4500,category:"Aerosoles Ambiente",img:"imagenes/clioceleste.png"},
+{id:125,name:"Poett Aerosol Suavidad de Algodon",price:4500,category:"Aerosoles Ambiente",img:"imagenes/poettalgodon.jpg"},
+{id:126,name:"Poett Aerosol Solo Para Ti",price:4500,category:"Aerosoles Ambiente",img:"imagenes/soloparati.jpg"},
+{id:127,name:"Poett Aerosol Despertar Energia",price:4500,category:"Aerosoles Ambiente",img:"imagenes/energia.jpg"},
+{id:128,name:"Poett Aerosol Flores de Primavera",price:4500,category:"Aerosoles Ambiente",img:"imagenes/poettflores.jpg"},
+{id:129,name:"Poett Aerosol Frescura de Lavanda",price:4500,category:"Aerosoles Ambiente",img:"imagenes/poettlavanda.jpg"},
+{id:130,name:"Pato Purific Gel Limpiador Flores Lunares",price:6000,category:"Baño",img:"imagenes/patogel1.jpg"},
+{id:131,name:"Pato Purific Gel Limpiador Combo Frutal",price:6000,category:"Baño",img:"imagenes/patogel2.jpg"},
+{id:132,name:"Pato Purific Destructor de Sarro",price:6500,category:"Baño",img:"imagenes/patosarro.jpg"},
+{id:133,name:"Pato Purific Bloque Adhesivo Flores Lunares",price:3000,category:"Baño",img:"imagenes/patobloque1.jpg"},
+{id:134,name:"Pato Purific Bloque Adhesivo Floral",price:3000,category:"Baño",img:"imagenes/patobloque2.jpg"},
+{id:135,name:"Pato Purific Bloque Adhesivo Cítrico",price:3000,category:"Baño",img:"imagenes/patobloque3.jpg"},
+{id:136,name:"Pato Purific Bloque Adhesivo Arcade Edición Limitada",price:3000,category:"Baño",img:"imagenes/patobloque4.jpg"},
+{id:137,name:"Pato Purific Bloque Adhesivo Combo Frutal",price:3000,category:"Baño",img:"imagenes/patobloque5.jpg"},
+{id:138,name:"Pato Purific Pastilla para Mochila x2u",price:5500,category:"Baño",img:"imagenes/patomochi1.jpg"},
+{id:139,name:"Pato Purific Pastilla para Mochila",price:4500,category:"Baño",img:"imagenes/patomochi2.jpg"},
+{id:140,name:"Pato Purific Pastilla Lavanda",price:2000,category:"Baño",img:"imagenes/patopasti1.jpg"},
+{id:141,name:"Pato Purific Pastilla Citrus",price:2000,category:"Baño",img:"imagenes/patopasti2.jpg"},
+{id:142,name:"Pato Purific Canasta Activa Pino",price:6000,category:"Baño",img:"imagenes/patocana1.jpg"},
+{id:143,name:"Pato Purific Canasta Activa Marina",price:6000,category:"Baño",img:"imagenes/patocana2.jpg"},
+{id:144,name:"Pato Purific Canasta Liquida Repuesto+Aparato Floral",price:7000,category:"Baño",img:"imagenes/patocana3.jpg"},
+{id:145,name:"Pato Purific Canasta Liquida Repuesto+Aparato Lavanda",price:7000,category:"Baño",img:"imagenes/patocana4.jpg"},
+{id:146,name:"Pato Purific Canasta Liquida Repuesto+Aparato Citrus",price:7000,category:"Baño",img:"imagenes/patocana5.jpg"},
+{id:147,name:"Pato Purific Canasta Repuesto+Aparato Marina",price:5000,category:"Baño",img:"imagenes/patocana6.jpg"},
+{id:148,name:"Crivea Bloque Para Mochila Lavanda",price:3500,category:"Baño",img:"imagenes/crivea.jpg"},
+{id:149,name:"Poett Canasta Brisa Polar",price:3500,category:"Baño",img:"imagenes/poettcana1.jpg"},
+{id:150,name:"Poett Canasta Lavanda",price:3500,category:"Baño",img:"imagenes/poettcana2.jpg"},
+{id:151,name:"Poett Canasta Pino y Especias",price:3500,category:"Baño",img:"imagenes/poettcana3.jpg"},
+{id:152,name:"Poett Canasta Primavera",price:3500,category:"Baño",img:"imagenes/poettcana4.jpg"},
+{id:153,name:"Poett Canasta Primavera Repuesto",price:2200,category:"Baño",img:"imagenes/poettcana5.jpg"},
+{id:154,name:"Poett Canasta Pino y Especias Repuesto",price:2200,category:"Baño",img:"imagenes/poettcana6.jpg"},
+{id:155,name:"Poett Canasta Brisa Polar Repuesto",price:2200,category:"Baño",img:"imagenes/poettcana7.jpg"},
+{id:156,name:"Poett Canasta Lavanda Repuesto",price:2200,category:"Baño",img:"imagenes/poettcana8.jpg"},
+{id:157,name:"Glade Canasta 3 en 1",price:4000,category:"Baño",img:"imagenes/gladecana1.jpg"},
+{id:158,name:"Glade Canasta 3 en 1 Repuesto",price:2500,category:"Cuidado Personal",img:"imagenes/gladecana2.jpg"},
+{id:159,name:"Jabon Tocador Nivea Avena x3",price:5000,category:"Cuidado Personal",img:"imagenes/niveavena.jpg"},
+{id:160,name:"Jabon Tocador Nivea Creme Care x3",price:5000,category:"Cuidado Personal",img:"imagenes/niveacrem.jpg"},
+{id:161,name:"Jabon Tocador Nivea Antibacterial x3",price:5000,category:"Cuidado Personal",img:"imagenes/niveabac.jpg"},
+{id:162,name:"Conc Piso Arpege 250cc Para 10 Litros",price:4000,category:"Productos Sueltos",img:"imagenes/arpege.jpg"},
+{id:163,name:"Conc Piso Atlantic 250cc Para 10 Litros",price:4000,category:"Productos Sueltos",img:"imagenes/atlantic.jpg"},
+{id:164,name:"Conc Piso Bella Flor 250cc Para 10 Litros",price:4000,category:"Productos Sueltos",img:"imagenes/bella.jpg"},
+{id:165,name:"Conc Piso Bambu 250cc Para 10 Litros",price:4000,category:"Productos Sueltos",img:"imagenes/bambu.jpg"},
+{id:166,name:"Conc Piso Chicle 250cc Para 10 Litros",price:4000,category:"Productos Sueltos",img:"imagenes/chicle.jpg"},
+{id:167,name:"Conc Piso Citronela 250cc Para 10 Litros",price:4000,category:"Productos Sueltos",img:"imagenes/citronela.jpg"},
+{id:168,name:"Conc Piso Cherry 250cc Para 10 Litros",price:4000,category:"Productos Sueltos",img:"imagenes/cherry.jpg"},
+{id:169,name:"Conc Piso Coco 250cc Para 10 Litros",price:4000,category:"Productos Sueltos",img:"imagenes/coco.jpg"},
+{id:170,name:"Conc Piso Coco Vainilla 250cc Para 10 Litros",price:4000,category:"Productos Sueltos",img:"imagenes/cocovai.jpg"},
+{id:171,name:"Conc Piso Lavanda 250cc Para 10 Litros",price:4000,category:"Productos Sueltos",img:"imagenes/lavanda.jpg"},
+{id:172,name:"Conc Piso Limon 250cc Para 10 Litros",price:4000,category:"Productos Sueltos",img:"imagenes/limon.jpg"},
+{id:173,name:"Conc Piso Lysoform 250cc Para 10 Litros",price:4000,category:"Productos Sueltos",img:"imagenes/lysoform.jpg"},
+{id:174,name:"Conc Piso Manzana Verde 250cc Para 10 Litros",price:4000,category:"Productos Sueltos",img:"imagenes/manverde.jpg"},
+{id:175,name:"Conc Piso Pino 250cc Para 10 Litros",price:4000,category:"Productos Sueltos",img:"imagenes/concpino.jpg"},
+{id:176,name:"Conc Piso Algodon 250cc Para 10 Litros",price:5000,category:"Productos Sueltos",img:"imagenes/domialgodon.jpg"},
+{id:177,name:"Conc Piso Paraiso 250cc Para 10 Litros",price:5000,category:"Productos Sueltos",img:"imagenes/domiparaiso.jpg"},
+{id:178,name:"Conc Piso Bebe 250cc Para 10 Litros",price:5000,category:"Productos Sueltos",img:"imagenes/domibebe.jpg"},
+{id:179,name:"Conc Piso Marino 250cc Para 10 Litros",price:5000,category:"Productos Sueltos",img:"imagenes/domimarino.jpg"},
+{id:180,name:"Escobillon Argentina",price:7000,category:"Escobillones",img:"imagenes/sinaargentina.jpg"},
+{id:181,name:"Escobillon Perla Monocolor",price:4000,category:"Escobillones",img:"imagenes/sinamono.jpg"},
+{id:182,name:"Escobillon Perla Bicolor",price:4000,category:"Escobillones",img:"imagenes/sinabico.jpg"},
+{id:183,name:"Escobillon Zafiro",price:6500,category:"Escobillones",img:"imagenes/sinazafiro.jpg"},
+{id:184,name:"Escobillon Ambar",price:7000,category:"Escobillones",img:"imagenes/sinaambar.jpg"},
+{id:185,name:"Escobillon Onix",price:6500,category:"Escobillones",img:"imagenes/sinaonix.jpg"},
+{id:186,name:"Escobillon Optimus",price:7000,category:"Escobillones",img:"imagenes/sinaoptimus.jpg"},
+{id:187,name:"Escobillon Caliza",price:7500,category:"Escobillones",img:"imagenes/sinacaliza.jpg"},
+{id:188,name:"Escobillon Rubi",price:4000,category:"Escobillones",img:"imagenes/sinarubi.jpg"},
+{id:189,name:"Escobillon Topacio",price:4000,category:"Escobillones",img:"imagenes/sinatopacio.jpg"},
+{id:190,name:"Escobillon Firenze",price:3500,category:"Escobillones",img:"imagenes/sinafirenze.jpg"},
+{id:191,name:"Escobillon Mica",price:3500,category:"Escobillones",img:"imagenes/sinamica.jpg"},
+{id:192,name:"Escobillon Recto Economico",price:3500,category:"Escobillones",img:"imagenes/sinarectoeco.jpg"},
+{id:193,name:"Escobillon Inst Green",price:4500,category:"Escobillones",img:"imagenes/sinagreen.jpg"},
+{id:194,name:"Escobillon Inst Yellow",price:4500,category:"Escobillones",img:"imagenes/sinayellow.jpg"},
+{id:195,name:"Escobillon Inst BLack",price:4500,category:"Escobillones",img:"imagenes/sinablack.jpg"},
+{id:196,name:"Escobillon Broom",price:4500,category:"Escobillones",img:"imagenes/sinabroom.jpg"},
+{id:197,name:"Escobillon Barrendero Azabache",price:5000,category:"Escobillones",img:"imagenes/sinaazabache.jpg"},
+{id:198,name:"Escobillon Cerda Sintetica",price:10000,category:"Escobillones",img:"imagenes/sinasintetico.jpg"},
+{id:199,name:"Escobillon Cerda Natural Liso",price:12000,category:"Escobillones",img:"imagenes/sinanatural.jpg"},
+{id:200,name:"Escobillon Gumer",price:4500,category:"Escobillones",img:"imagenes/sinagumer.jpg"},
+{id:201,name:"Secador N° 40 Negro",price:4000,category:"Secadores",img:"imagenes/seca40.jpg"},
+{id:202,name:"Secador N° 30 Negro",price:3000,category:"Secadores",img:"imagenes/seca30.jpg"},
+{id:203,name:"Secador N° 40 Rojo",price:4000,category:"Secadores",img:"imagenes/seca40rojo.jpg"},
+{id:204,name:"Secador N° 50 Negro",price:6000,category:"Secadores",img:"imagenes/seca60.jpg"},
+{id:205,name:"Secador N° 30 Rojo",price:3000,category:"Secadores",img:"imagenes/seca30rojo.jpg"},
+{id:206,name:"Secador N° 50 Rojo",price:6000,category:"Secadores",img:"imagenes/seca50rojo.jpg"},
+{id:207,name:"Secador N° 50 Blanco",price:6000,category:"Secadores",img:"imagenes/seca50blanco.jpg"},
+{id:208,name:"Secador Doble Goma Super",price:3500,category:"Secadores",img:"imagenes/secadoblesuper.jpg"},
+{id:209,name:"Secador Doble Goma Reforzado 35cm",price:5000,category:"Secadores",img:"imagenes/secaenduro.jpg"},
+{id:210,name:"Secador Doble Goma Reforzado 42cm",price:6000,category:"Secadores",img:"imagenes/secaenduro1.jpg"},
+{id:211,name:"Secador N° 30 Plastico Rosca",price:3000,category:"Secadores",img:"imagenes/seca30plastico.jpg"},
+{id:212,name:"Secador N° 40 Plastico Rosca",price:4000,category:"Secadores",img:"imagenes/seca40plastico.jpg"},
+{id:213,name:"Secador Doble Goma Clasico",price:4500,category:"Secadores",img:"imagenes/secadobleclasico.jpg"},
+{id:214,name:"Saphirus Aerosol Indiana",price:6000,category:"Saphirus Aerosol",img:"imagenes/indiana.jpg"},
+{id:215,name:"Saphirus Aerosol Pitanga",price:6000,category:"Saphirus Aerosol",img:"imagenes/pitanga.jpg"},
+{id:216,name:"Saphirus Aerosol Apple",price:6000,category:"Saphirus Aerosol",img:"imagenes/apple.jpg"},
+{id:217,name:"Saphirus Aerosol Paula",price:6000,category:"Saphirus Aerosol",img:"imagenes/paula.jpg"},
+{id:218,name:"Saphirus Aerosol Amour",price:6000,category:"Saphirus Aerosol",img:"imagenes/amour.jpg"},
+{id:219,name:"Saphirus Aerosol Bubblegum",price:6000,category:"Saphirus Aerosol",img:"imagenes/bubble.jpg"},
+{id:220,name:"Saphirus Aerosol Clean Cotton",price:6000,category:"Saphirus Aerosol",img:"imagenes/cotton.jpg"},
+{id:221,name:"Saphirus Aerosol Oriente",price:6000,category:"Saphirus Aerosol",img:"imagenes/oriente.jpg"},
+{id:222,name:"Saphirus Aerosol Sandia y Pepino",price:6000,category:"Saphirus Aerosol",img:"imagenes/sandiapepibo.jpg"},
+{id:223,name:"Saphirus Aerosol Limon",price:6000,category:"Saphirus Aerosol",img:"imagenes/salimon.jpg"},
+{id:224,name:"Saphirus Aerosol Flores Blancas",price:6000,category:"Saphirus Aerosol",img:"imagenes/safloresblancas.jpg"},
+{id:225,name:"Saphirus Aerosol Bebe",price:6000,category:"Saphirus Aerosol",img:"imagenes/sabebe.jpg"},
+{id:226,name:"Saphirus Aerosol One Millon",price:6000,category:"Saphirus Aerosol",img:"imagenes/onemillon.jpg"},
+{id:227,name:"Saphirus Aerosol Linah",price:6000,category:"Saphirus Aerosol",img:"imagenes/salinah.jpg"},
+{id:228,name:"Saphirus Aerosol Lavanda",price:6000,category:"Saphirus Aerosol",img:"imagenes/salavanda.jpg"},
+{id:229,name:"Saphirus Aerosol Anti Tabaco",price:6000,category:"Saphirus Aerosol",img:"imagenes/antitabaco.jpg"},
+{id:230,name:"Saphirus Aerosol Cony",price:6000,category:"Saphirus Aerosol",img:"imagenes/sacony.jpg"},
+{id:231,name:"Saphirus Aerosol Rocio",price:6000,category:"Saphirus Aerosol",img:"imagenes/sarocio.jpg"},
+{id:232,name:"Saphirus Aerosol Coco Vai",price:6000,category:"Saphirus Aerosol",img:"imagenes/sacocovai.jpeg"},
+{id:233,name:"Saphirus Aerosol Apolo",price:6000,category:"Saphirus Aerosol",img:"imagenes/saapolo.jpg"},
+{id:234,name:"Saphirus Aerosol Maracuya",price:6000,category:"Saphirus Aerosol",img:"imagenes/samaracuya.jpg"},
+{id:235,name:"Saphirus Aerosol Invicto",price:6000,category:"Saphirus Aerosol",img:"imagenes/sainvicto.jpg"},
+{id:236,name:"Saphirus Aerosol Manzana Canela",price:6000,category:"Saphirus Aerosol",img:"imagenes/samanzanacanela.jpg"},
+{id:237,name:"Saphirus Aerosol Uva",price:6000,category:"Saphirus Aerosol",img:"imagenes/sauva.jpg"},
+{id:238,name:"Saphirus Aerosol Wanted",price:6000,category:"Saphirus Aerosol",img:"imagenes/sawanted.jpg"},
+{id:239,name:"Saphirus Aerosol Flowers",price:6000,category:"Saphirus Aerosol",img:"imagenes/saflowers.jpg"},
+{id:240,name:"Saphirus Aerosol Marino",price:6000,category:"Saphirus Aerosol",img:"imagenes/samarino.jpg"},
+{id:241,name:"Saphirus Aerosol Nina",price:6000,category:"Saphirus Aerosol",img:"imagenes/sanina.jpg"},
+{id:242,name:"Saphirus Aerosol Naranja Pimienta",price:6000,category:"Saphirus Aerosol",img:"imagenes/sanaranjapomienta.jpg"},
+{id:243,name:"Saphirus Aerosol Hawai",price:6000,category:"Saphirus Aerosol",img:"imagenes/sahawai.jpg"},
+{id:244,name:"Saphirus Aerosol Mix Tropical",price:6000,category:"Saphirus Aerosol",img:"imagenes/samixtropical.jpg"},
+{id:245,name:"Saphirus Aerosol Tropical",price:6000,category:"Saphirus Aerosol",img:"imagenes/satropical.jpg"},
+{id:246,name:"Saphirus Textil Hawai",price:4500,category:"Saphirus Textil",img:"imagenes/texthawai.jpg"},
+{id:247,name:"Saphirus Textil Salvage",price:4500,category:"Saphirus Textil",img:"imagenes/textsalvg.jpg"},
+{id:248,name:"Saphirus Textil Coco Vai",price:4500,category:"Saphirus Textil",img:"imagenes/textcocovai.jpeg"},
+{id:249,name:"Saphirus Textil Daniel",price:4500,category:"Saphirus Textil",img:"imagenes/textdaniel.jpeg"},
+{id:250,name:"Saphirus Textil Olympic",price:4500,category:"Saphirus Textil",img:"imagenes/textolimpic.jpg"},
+{id:251,name:"Saphirus Textil  Bad Man",price:4500,category:"Saphirus Textil",img:"imagenes/textbadman.jpg"},
+{id:252,name:"Saphirus Textil Bambu",price:4500,category:"Saphirus Textil",img:"imagenes/textbambu.jpg"},
+{id:253,name:"Saphirus Textil Citrus",price:4500,category:"Saphirus Textil",img:"imagenes/textcitrus.jpg"},
+{id:254,name:"Saphirus Textil Tokyo",price:4500,category:"Saphirus Textil",img:"imagenes/texttokyo.jpg"},
+{id:255,name:"Saphirus Textil Bella",price:4500,category:"Saphirus Textil",img:"imagenes/textbella.jpg"},
+{id:256,name:"Saphirus Textil Paula",price:4500,category:"Saphirus Textil",img:"imagenes/textpaula.jpg"},
+{id:257,name:"Saphirus Textil Maracuya",price:4500,category:"Saphirus Textil",img:"imagenes/textmaracu.jpg"},
+{id:258,name:"Saphirus Textil Mery",price:4500,category:"Saphirus Textil",img:"imagenes/textmery.jpg"},
+{id:259,name:"Saphirus Textil Indiana",price:4500,category:"Saphirus Textil",img:"imagenes/texindiana.jpg"},
+{id:260,name:"Saphirus Textil Lavanda",price:4500,category:"Saphirus Textil",img:"imagenes/textlavanda.jpg"},
+{id:261,name:"Saphirus Textil Frutos Patagonicos",price:4500,category:"Saphirus Textil",img:"imagenes/textrojos.jpg"},
+{id:262,name:"Saphirus Textil Amour",price:4500,category:"Saphirus Textil",img:"imagenes/textamour.jpg"},
+{id:263,name:"Saphirus Textil Taekwood",price:4500,category:"Saphirus Textil",img:"imagenes/textwood.jpg"},
+{id:264,name:"Saphirus Textil Rocio",price:4500,category:"Saphirus Textil",img:"imagenes/textrocio.jpg"},
+{id:265,name:"Saphirus Textil Invicto",price:4500,category:"Saphirus Textil",img:"imagenes/textinvicto.jpg"},
+{id:266,name:"Saphirus Textil Polo",price:4500,category:"Saphirus Textil",img:"imagenes/textpolo.jpg"},
+{id:267,name:"Saphirus Textil Vainilla",price:4500,category:"Saphirus Textil",img:"imagenes/textvainilla.jpg"},
+{id:268,name:"Saphirus Textil One Millon",price:4500,category:"Saphirus Textil",img:"imagenes/textmillon.jpg"},
+{id:269,name:"Saphirus Textil Flores Blancas",price:4500,category:"Saphirus Textil",img:"imagenes/textblanca.jpg"},
+{id:270,name:"Saphirus Textil Limon",price:4500,category:"Saphirus Textil",img:"imagenes/textlimon.jpg"},
+{id:271,name:"Saphirus Textil Fresias y Bergamota",price:4500,category:"Saphirus Textil",img:"imagenes/textfresia.jpg"},
+{id:272,name:"Saphirus Textil Linah",price:4500,category:"Saphirus Textil",img:"imagenes/textlinah.jpg"},
+{id:273,name:"Saphirus Textil Wanted",price:4500,category:"Saphirus Textil",img:"imagenes/textwanted.jpg"},
+{id:274,name:"Saphirus Textil Invicto Legend",price:4500,category:"Saphirus Textil",img:"imagenes/invicto222.jpg"},
+{id:275,name:"Saphirus Varilla Linah",price:6500,category:"Saphirus Varilla",img:"imagenes/valinah.jpg"},
+{id:276,name:"Saphirus Varilla Tropical",price:6500,category:"Saphirus Varilla",img:"imagenes/vatropical.jpg"},
+{id:277,name:"Saphirus Varilla Uva",price:6500,category:"Saphirus Varilla",img:"imagenes/vauva.jpg"},
+{id:278,name:"Saphirus Varilla Vainilla",price:6500,category:"Saphirus Varilla",img:"imagenes/vavainilla.jpg"},
+{id:279,name:"Saphirus Varilla Vainilla Tonka",price:6500,category:"Saphirus Varilla",img:"imagenes/vatonka.jpg"},
+{id:280,name:"Saphirus Varilla Limon Dulce y Vainilla",price:6500,category:"Saphirus Varilla",img:"imagenes/vadulce.jpg"},
+{id:281,name:"Saphirus Varilla Miel y Limon",price:6500,category:"Saphirus Varilla",img:"imagenes/vamiel.jpg"},
+{id:282,name:"Saphirus Varilla Limon",price:6500,category:"Saphirus Varilla",img:"imagenes/valimon.jpg"},
+{id:283,name:"Saphirus Varilla Sandia Pepino",price:6500,category:"Saphirus Varilla",img:"imagenes/vapepino.jpg"},
+{id:284,name:"Saphirus Varilla Frutos Patagonicos",price:6500,category:"Saphirus Varilla",img:"imagenes/varojos.jpg"},
+{id:285,name:"Saphirus Varilla Manzana Canela",price:6500,category:"Saphirus Varilla",img:"imagenes/vacanela.jpg"},
+{id:286,name:"Saphirus Varilla Coco Vai",price:6500,category:"Saphirus Varilla",img:"imagenes/vacocovai.jpg"},
+{id:287,name:"Saphirus Varilla Hawai",price:6500,category:"Saphirus Varilla",img:"imagenes/vahawai.jpg"},
+{id:288,name:"Saphirus Varilla Clean Cotton",price:6500,category:"Saphirus Varilla",img:"imagenes/vacotton.jpg"},
+{id:289,name:"Saphirus Varilla Fresia y Bergamota",price:6500,category:"Saphirus Varilla",img:"imagenes/vafresias.jpg"},
+{id:290,name:"Saphirus Varilla Oriente",price:6500,category:"Saphirus Varilla",img:"imagenes/vaoriente.jpg"},
+{id:291,name:"Saphirus Varilla Paula",price:6500,category:"Saphirus Varilla",img:"imagenes/vapaula.jpg"},
+{id:292,name:"Saphirus Varilla Bubblegum",price:6500,category:"Saphirus Varilla",img:"imagenes/vabubble.jpg"},
+{id:293,name:"Saphirus Varilla Flores Blancas",price:6500,category:"Saphirus Varilla",img:"imagenes/vaflores.jpg"},
+{id:294,name:"Saphirus Varilla Lavanda",price:6500,category:"Saphirus Varilla",img:"imagenes/valavanda.jpg"},
+{id:295,name:"Saphirus Varilla Bella",price:6500,category:"Saphirus Varilla",img:"imagenes/vabella.jpg"},
+{id:296,name:"Saphirus Varilla Lola",price:6500,category:"Saphirus Varilla",img:"imagenes/valola.jpg"},
+{id:297,name:"Saphirus Varilla Rocio",price:6500,category:"Saphirus Varilla",img:"imagenes/varocio.jpg"},
+{id:298,name:"Saphirus Varilla Bebe",price:6500,category:"Saphirus Varilla",img:"imagenes/vabebe.jpg"},
+{id:299,name:"Saphirus Varilla Cony",price:6500,category:"Saphirus Varilla",img:"imagenes/vacony.jpg"},
+{id:300,name:"Saphirus Varilla Marino",price:6500,category:"Saphirus Varilla",img:"imagenes/vamarino.jpg"},
+{id:301,name:"Saphirus Varilla Flowers",price:6500,category:"Saphirus Varilla",img:"imagenes/vaflowers.jpg"},
+{id:302,name:"Saphirus Varilla Bad Man",price:6500,category:"Saphirus Varilla",img:"imagenes/vabad.jpg"}
+{id:303,name:"Saphirus Varilla Mery",price:6500,category:"Saphirus Varilla",img:"imagenes/vamery.jpg"},
+{id:304,name:"Saphirus Varilla Palo Santo",price:6500,category:"Saphirus Varilla",img:"imagenes/vasanto.jpg"},
+{id:305,name:"Saphirus Varilla Bamboo",price:6500,category:"Saphirus Varilla",img:"imagenes/vabambu.jpg"},
+{id:306,name:"Jabon Liquido Tipo Ariel Premium a Partir de 20 Litros",price:800,category:"Mayorista",img:"imagenes/arielpre.jpg"},
+{id:307,name:"Jabon Liquido Tipo Skip Premium a Partir de 20 Litros",price:800,category:"Mayorista",img:"imagenes/skippre.jpg"},
+{id:308,name:"Jabon Liquido Tipo Rosa Premium a Partir de 10 Litros",price:1400,category:"Mayorista",img:"imagenes/lilapre.jpg"},
+{id:313,name:"Jabon Liquido Tipo Skip Comun a Partir de 20 Litros",price:720,category:"Mayorista",img:"imagenes/skipcom.jpg"},
+{id:314,name:"Jabon Liquido Ariel Comun a Partir de 20 Litros",price:720,category:"Mayorista",img:"imagenes/arielcom.jpg"},
+{id:309,name:"Suavizante Aroma Vivere Premium a Partir de 20 Litros",price:780,category:"Mayorista",img:"imagenes/viverepre.jpg"},
+{id:311,name:"Suavizante Aroma Bebe Premium a Partir de 20 Litros",price:780,category:"Mayorista",img:"imagenes/rosapre.jpg"},
+{id:312,name:"Suavizante Aroma Vivere Comun a Partir de 20 Litros",price:710,category:"Mayorista",img:"imagenes/viverecom.jpg"},
+{id:315,name:"Detergente Amarillo Comun a Partir de 20 Litros",price:800,category:"Mayorista",img:"imagenes/detcom.jpg"},
+{id:316,name:"Detergente Naranja Premium a Partir de 10 Litros",price:1400,category:"Mayorista",img:"imagenes/detpre.jpg"},
+{id:317,name:"Shampu Automovil Siliconado",price:1100,category:"Automovil",img:"imagenes/shampu.jpg"},
+{id:318,name:"Revividor de Caucho Negro 500cc",price:4000,category:"Automovil",img:"imagenes/domicaucho.jpg"},
+{id:319,name:"Silicona En Gel 500cc",price:4000,category:"Automovil",img:"imagenes/domisilicona.jpg"},
+{id:320,name:"Silicona al Agua 500cc",price:4000,category:"Automovil",img:"imagenes/siliconaagua.jpg"},
+{id:321,name:"Revividor de Caucho Dorado 500cc",price:3000,category:"Automovil",img:"imagenes/domisilicona.jpg"},
+{id:322,name:"Limpia Tapizados Liquido 500cc",price:3000,category:"Automovil",img:"imagenes/domitapizado.jpg"},
+{id:323,name:"Limpia Tapizados Aerosol K78",price:5500,category:"Automovil",img:"imagenes/aerotapi.jpg"},
+{id:324,name:"Silicona en Aerosol K78",price:7000,category:"Automovil",img:"imagenes/k78aerosol.jpg"},
+{id:325,name:"Trapo de Piso Nido Abeja Blanco 100% algodon",price:3000,category:"Textiles",img:"imagenes/abejablanco.jpg"},
+{id:326,name:"Trapo de Piso Nido Abeja Gris 100% algodon",price:3000,category:"Textiles",img:"imagenes/abejagris.jpg"},
+{id:327,name:"Trapo de Piso Sofi 100% algodon",price:3000,category:"Textiles",img:"imagenes/traposofi.jpg"},
+{id:328,name:"Trapo de Piso Eco Gris",price:1200,category:"Textiles",img:"imagenes/griseco.jpg"},
+{id:359,name:"Trapo de Piso Eco Blanco",price:1500,category:"Textiles",img:"imagenes/blancoliso.jpg"},
+{id:329,name:"Trapo de Piso Duramax Rayado",price:3000,category:"Textiles",img:"imagenes/duramaxraya.jpg"},
+{id:330,name:"Trapo de Piso Duramax Gris Abeja",price:3000,category:"Textiles",img:"imagenes/duramaxgris.jpg"},
+{id:381,name:"Trapo de Piso Domitec Rayado 50x60",price:3000,category:"Textiles",img:"imagenes/domigris.jpg"},
+{id:382,name:"Trapo de Piso Domitec Gris 50x60",price:2500,category:"Textiles",img:"imagenes/domirayado.jpg"},
+{id:383,name:"Trapo de Piso Domitec Rayado 60x70",price:3500,category:"Textiles",img:"imagenes/domigigante.jpg"},
+{id:331,name:"Franela Nacional Extra Grande",price:4000,category:"Textiles",img:"imagenes/franelasina.jpg"},
+{id:332,name:"Franela Clasica",price:2500,category:"Textiles",img:"imagenes/franelaclasica.jpg"},
+{id:333,name:"Rejilla Sofi Eco",price:1500,category:"Textiles",img:"imagenes/rejillasofi.jpg"},
+{id:334,name:"Rejilla Duramax",price:1000,category:"Textiles",img:"imagenes/rejilladuramax.jpg"},
+{id:335,name:"Rejilla Americana",price:3000,category:"Textiles",img:"imagenes/rejillaamericana.jpg"},
+{id:336,name:"Rejilla Lava Coche Pesada",price:3000,category:"Textiles",img:"imagenes/rejillapesada.jpg"},
+{id:337,name:"Bolsa Residuo 45 x 60 cm",price:1200,category:"Bolsas",img:"imagenes/45x60.png"},
+{id:338,name:"Bolsa Residuo 50 x 70 cm",price:1500,category:"Bolsas",img:"imagenes/50x70.jpg"},
+{id:339,name:"Bolsa Residuo 60 x 90 cm",price:2000,category:"Bolsas",img:"imagenes/60x90.png"},
+{id:340,name:"Bolsa Residuo 80 x 110 cm",price:3000,category:"Bolsas",img:"imagenes/80x110.jpg"},
+{id:341,name:"Bolsa Residuo 90 x 120 cm",price:3500,category:"Bolsas",img:"imagenes/90x120.jpg"},
+{id:342,name:"Panic Pastillas Veneno Para Ratas",price:3500,category:"Control de Plagas",img:"panic.jpg"},
+{id:343,name:"Geltek Bloques x5 Veneno Para Ratas",price:4000,category:"Control de Plagas",img:"geltekbloque.jpg"},
+{id:344,name:"Brumoline Veneno Para Ratas",price:5500,category:"Control de Plagas",img:"brumolinecebo.jpg"},
+{id:345,name:"Cebo en Granos Ultra Plus Para Ratas",price:4000,category:"Control de Plagas",img:"ultraplus.jpg"},
+{id:346,name:"Pegamento Para Ratas",price:4000,category:"Control de Plagas",img:"pegarat.jpg"},
+{id:347,name:"Espacial Talquera Para Hormigas",price:5000,category:"Control de Plagas",img:"espacialtalq.jpg"},
+{id:348,name:"Cebo en Granos Mirex Hormigas",price:3200,category:"Control de Plagas",img:"mirex.jpg"},
+{id:349,name:"Cebo En Granos Manchester Hormigas",price:7000,category:"Control de Plagas",img:"manchesterhormi.jpg"},
+{id:350,name:"Geltek Cebo en Gel Para Cucarachas",price:4500,category:"Control de Plagas",img:"geltekgel.jpg"},
+{id:351,name:"Geltek Jeringa Para Cucarachas",price:4500,category:"Control de Plagas",img:"geltekjeringa.jpg"},
+{id:352,name:"Derribante Mata Todo Rinde 30 Litros",price:4500,category:"Control de Plagas",img:"derribante.jpg"},
+{id:353,name:"Creolina Concentrada 500cc Rinde 20 Litros ",price:4000,category:"Control de Plagas",img:"creolina1.jpg"},
+{id:354,name:"Fluido Machester Lata 700cc",price:10000,category:"Control de Plagas",img:"fluidomanch.jpg"},
+{id:355,name:"Cebo Mata Moscas Ultra Pum",price:4500,category:"Control de Plagas",img:"ultrapum.jpg"},
+{id:356,name:"Limpia Motores Alcalino 1 Litro",price:3000,category:"Automovil",img:"imagenes/motoralcalino.jpg"},
+{id:357,name:"Limpia Motores de Grasa 1 Litro",price:5000,category:"Automovil",img:"imagenes/motorgrasa.jpg"},
+{id:358,name:"Destapacañerias 1 Litro",price:7000,category:"Baño",img:"imagenes/destapa1.jpg"},
+{id:359,name:"Destapacañerias Sofi 1 Litro",price:4500,category:"Baño",img:"imagenes/destapa2.jpg"},
+{id:360,name:"Destapacañerias Plomero 1 Litro",price:5000,category:"Baño",img:"imagenes/destapa3.jpg"},
+{id:361,name:"Quitasarro 1 Litro",price:4000,category:"Baño",img:"imagenes/quitasarro12.jpg"},
+{id:358,name:"Papel Higienico Elegante x4 x30mt",price:2500,category:"Papeles",img:"imagenes/elegante2500.jpg"},
+{id:360,name:"Papel Higienico Elegante x4 x20mt Doble Hoja",price:2500,category:"Papeles",img:"imagenes/elegante2800.jpg"},
+{id:360,name:"Papel Higienico Elegante x4 x30mt Doble Hoja Premium",price:4500,category:"Papeles",img:"imagenes/elegante4500.jpg"},
+{id:361,name:"Papel Higienico Elegante x6 x30mt",price:4000,category:"Papeles",img:"imagenes/elegante4000.jpg"},
+{id:362,name:"Papel Higienico Elegante x6 x30mt Aloe Vera",price:4000,category:"Papeles",img:"imagenes/elegante4100.jpeg"},
+{id:363,name:"Papel Higienico x6 x30mt Elite",price:5000,category:"Papeles",img:"imagenes/elegante5000.jpg"},
+{id:364,name:"Papel Higienico Elegante x24 x30mt",price:17000,category:"Papeles",img:"imagenes/elegante14000.jpeg"},
+{id:365,name:"Papel Higienico Elegante x24 x50mt",price:19000,category:"Papeles",img:"imagenes/elegante18000.jpg"},
+{id:384,name:"Papel Higienico Hody x12 x20mt",price:8000,category:"Papeles",img:"imagenes/hodyx12.jpg"},
+{id:385,name:"Papel Higienico Qualite x12 x30mt Doble Hoja",price:9500,category:"Papeles",img:"imagenes/qualitex12.jpg"},
+{id:366,name:"Rollo de Cocina Elegante 150 Paños",price:2500,category:"Papeles",img:"imagenes/rollo2500.jpg"},
+{id:367,name:"Cera para Pisos Incolora Autobrillo 1 Litro",price:4500,category:"Cuidado de Pisos y Muebles",img:"imagenes/ceraincolora.jpg"},
+{id:368,name:"Cera para Pisos Roja Autobrillo 1 Litro",price:5000,category:"Cuidado de Pisos y Muebles",img:"imagenes/ceraroja.jpg"},
+{id:369,name:"Cera para Pisos Incolora Autobrillo 500cc",price:2500,category:"Cuidado de Pisos y Muebles",img:"imagenes/ceraincolora5.jpg"},
+{id:370,name:"Cera para Pisos Roja Autobrillo 500CC",price:2500,category:"Cuidado de Pisos y Muebles",img:"imagenes/ceraroja5.jpg"},
+{id:371,name:"Cera para Pisos Negra Autobrillo 1 Litro",price:5000,category:"Cuidado de Pisos y Muebles",img:"imagenes/ceranegra.jpg"},
+{id:372,name:"Cera para Pisos Negra Autobrillo 500cc",price:2500,category:"Cuidado de Pisos y Muebles",img:"imagenes/ceranegra5.jpg"},
+{id:373,name:"Lustramuebles Blem Aerosol",price:6500,category:"Cuidado de Pisos y Muebles",img:"imagenes/blemaerosol.jpg"},
+{id:374,name:"Lustramuebles Ceramicol Aerosol",price:5000,category:"Cuidado de Pisos y Muebles",img:"imagenes/ceraaerosol.jpg"},
+{id:375,name:"Lustramuebles Danubio Aerosol",price:4500,category:"Cuidado de Pisos y Muebles",img:"imagenes/danubioaerosol.jpg"},
+{id:376,name:"Lustramuebles Suiza Aerosol",price:5000,category:"Cuidado de Pisos y Muebles",img:"imagenes/suizaaerosol.jpg"},
+{id:377,name:"Lustramuebles Blem Aerosol Electronicos",price:7000,category:"Cuidado de Pisos y Muebles",img:"imagenes/blemaerosol.jpg"},
+{id:378,name:"Lustramuebles Blem Recarga Economica",price:4000,category:"Cuidado de Pisos y Muebles",img:"imagenes/blemeco.jpg"},
+{id:379,name:"Lustramuebles Cif Ultra Brillo Gatillo",price:6000,category:"Cuidado de Pisos y Muebles",img:"imagenes/cifgatillo.jpg"},
+{id:380,name:"Paño Gamuzado Chamoi k78",price:6500,category:"Automovil",img:"imagenes/chamoi.jpg"},
+{id:386,name:"Sahumerio Sagrada Madre Linea Tarot",price:3000,category:"Sahumerios",img:"imagenes/madretarot.jpg"},
+{id:387,name:"Sahumerio Aromanza Linea Emociones",price:2500,category:"Sahumerios",img:"imagenes/calmaar.jpg"},
+{id:388,name:"Sahumerio Sagrada Madre Tarot Cristal",price:3000,category:"Sahumerios",img:"imagenes/tarot3000.jpg"},
+{id:389,name:"Sahumerio Aromanza Buena Onda Mini",price:1500,category:"Sahumerios",img:"imagenes/palosantosuper.jpg"},
+{id:390,name:"Sahumerio Aromanza Buena Onda",price:2500,category:"Sahumerios",img:"imagenes/minipalosanto.jpg"},
+{id:391,name:"Sahumerio Aromanza Tibetano Slim",price:4000,category:"Sahumerios",img:"imagenes/tibetanoslim.jpg"},
+{id:392,name:"Sahumerio Aromanza Tibetano Mini",price:2500,category:"Sahumerios",img:"imagenes/tibetanomini.jpg"},
+
+
+
+
+
+
+
+
+
+
+
+
+  
+];
+
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+let categoriaActiva=localStorage.getItem("categoriaActiva")||"Promos Semanales";
+
+function saveCart(){
+localStorage.setItem("cart",JSON.stringify(cart));
+}
+
+function renderProducts(list){
+const container=document.getElementById("product-list");
+container.innerHTML="";
+list.forEach(p=>{
+container.innerHTML+=`
+<div class="card">
+<img src="${p.img}">
+<h3>${p.name}</h3>
+<div class="price">$${p.price.toLocaleString('es-AR')}</div>
+<button class="add-btn" onclick="addToCart(${p.id})">Agregar</button>
+</div>`;
+});
+}
+
+function filterCategory(cat){
+categoriaActiva=cat;
+localStorage.setItem("categoriaActiva",cat);
+
+if(cat==="Todos") renderProducts(products);
+else renderProducts(products.filter(p=>p.category===cat));
+}
+
+document.getElementById("search").addEventListener("input",function(){
+const value=this.value.toLowerCase();
+
+if(value===""){
+filterCategory(categoriaActiva);
+return;
+}
+
+renderProducts(products.filter(p=>p.name.toLowerCase().includes(value)));
+});
+
+function addToCart(id){
+let item=cart.find(p=>p.id===id);
+if(item) item.qty++;
+else{
+let product=products.find(p=>p.id===id);
+cart.push({...product,qty:1});
+}
+updateCart();
+saveCart();
+}
+
+function updateCart(){
+const cartItems=document.getElementById("cart-items");
+const cartTotal=document.getElementById("cart-total");
+cartItems.innerHTML="";
+let total=0;
+let totalCantidad=0;
+
+cart.forEach(item=>{
+let subtotal=item.price*item.qty;
+total+=subtotal;
+totalCantidad+=item.qty;
+
+cartItems.innerHTML+=`
+<div class="cart-item">
+<strong>${item.name}</strong><br>
+$${item.price.toLocaleString("es-AR")} c/u<br>
+
+<button class="qty-btn" onclick="changeQty(${item.id},-1)">-</button>
+${item.qty}
+<button class="qty-btn" onclick="changeQty(${item.id},1)">+</button>
+
+<button class="remove-btn" onclick="removeItem(${item.id})">x</button>
+
+<div style="float:right;">
+<strong>$${subtotal.toLocaleString("es-AR")}</strong>
+</div>
+</div>`;
+});
+
+let envio=0;
+let descuento= total>60000 ? total*0.10 : 0;
+let totalFinal= total + envio - descuento;
+
+cartTotal.innerHTML=`
+<div class="total-box">
+Subtotal: $${total.toLocaleString("es-AR")}<br>
+Envío: $${envio.toLocaleString("es-AR")}<br>
+Descuento: -$${descuento.toLocaleString("es-AR")}<br>
+
+<h3 style="color:#d4af37;">
+Total: $${totalFinal.toLocaleString("es-AR")}
+</h3>
+
+</div>
+`;
+
+document.getElementById("cart-count").innerText=totalCantidad;
+}
+
+function changeQty(id,change){
+let item=cart.find(p=>p.id===id);
+item.qty+=change;
+if(item.qty<=0) cart=cart.filter(p=>p.id!==id);
+updateCart();
+saveCart();
+}
+
+function removeItem(id){
+cart=cart.filter(p=>p.id!==id);
+updateCart();
+saveCart();
+}
+
+function toggleCart(){
+document.getElementById("cart").classList.toggle("open");
+document.getElementById("overlay").style.display=
+document.getElementById("cart").classList.contains("open")?"block":"none";
+}
+
+function sendWhatsApp(){
+if(cart.length===0){alert("El carrito está vacío");return;}
+
+let total=0;
+let envio=0;
+let message="Hola quiero comprar:%0A%0A";
+
+cart.forEach(item=>{
+let subtotal=item.price*item.qty;
+total+=subtotal;
+message+=`${item.name} x${item.qty} = $${subtotal}%0A`;
+});
+
+let descuento= total>60000 ? total*0.10 : 0;
+let totalFinal= total + envio - descuento;
+
+message+=`%0ASubtotal: $${total}`;
+message+=`%0AEnvío: $${envio}`;
+message+=`%0ADescuento: -$${descuento}`;
+message+=`%0A*TOTAL FINAL: $${totalFinal}*`;
+
+window.open(`https://wa.me/5493704626684?text=${message}`);
+}
+
+/* 🔥 CARGA INICIAL INTELIGENTE */
+filterCategory(categoriaActiva);
+updateCart();
+</script>
+  
+<div class="social-section">
+
+<div class="social-title">
+SEGUINOS EN NUESTRAS REDES SOCIALES O CONTACTANOS POR WHATSAPP
+</div>
+
+<footer class="footer">
+  <div class="footer-redes">
+
+<a href="https://wa.me/5493704626684" target="_blank" class="social-btn whatsapp">
+<i class="fab fa-whatsapp"></i>
+<span>WhatsApp</span>
+</a>
+
+<a href="https://instagram.com/lodesofi.limpieza.fsa" target="_blank" class="social-btn instagram">
+<i class="fab fa-instagram"></i>
+<span>Instagram</span>
+</a>
+
+<a href="https://facebook.com/brillos.produclimp" target="_blank" class="social-btn facebook">
+<i class="fab fa-facebook-f"></i>
+<span>Facebook</span>
+</a>
+
+  </div>
+
+  <p class="copyright">
+© 2026 Lo de Sofi - Todos los derechos reservados
+  </p>
+</footer>
+  
+</body>
+</html>
